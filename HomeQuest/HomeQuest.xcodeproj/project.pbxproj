@@ -17,6 +17,10 @@
 		77693EA22C452AB00087D792 /* Screen3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EA12C452AB00087D792 /* Screen3.swift */; };
 		77693EA52C452D2A0087D792 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EA42C452D2A0087D792 /* Route.swift */; };
 		77693EA72C452DE50087D792 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EA62C452DE50087D792 /* OnboardingView.swift */; };
+		77693EB12C45378D0087D792 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EB02C45378D0087D792 /* LoginView.swift */; };
+		77693EB32C453BCC0087D792 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EB22C453BCC0087D792 /* Logo.swift */; };
+		77693EB52C453BF20087D792 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EB42C453BF20087D792 /* AuthButton.swift */; };
+		77693EB72C4540160087D792 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EB62C4540160087D792 /* RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		77693EA12C452AB00087D792 /* Screen3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen3.swift; sourceTree = "<group>"; };
 		77693EA42C452D2A0087D792 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		77693EA62C452DE50087D792 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		77693EB02C45378D0087D792 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		77693EB22C453BCC0087D792 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		77693EB42C453BF20087D792 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		77693EB62C4540160087D792 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,7 @@
 		77693E952C450D930087D792 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				77693EA82C4533A40087D792 /* AuthViews */,
 				77693E992C450DE20087D792 /* Onboarding */,
 			);
 			path = Core;
@@ -147,6 +156,41 @@
 				77693EA42C452D2A0087D792 /* Route.swift */,
 			);
 			path = Route;
+			sourceTree = "<group>";
+		};
+		77693EA82C4533A40087D792 /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				77693EAB2C4533C20087D792 /* Shared */,
+				77693EAA2C4533B30087D792 /* Register */,
+				77693EA92C4533AE0087D792 /* Login */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		77693EA92C4533AE0087D792 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				77693EB02C45378D0087D792 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		77693EAA2C4533B30087D792 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				77693EB62C4540160087D792 /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		77693EAB2C4533C20087D792 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				77693EB22C453BCC0087D792 /* Logo.swift */,
+				77693EB42C453BF20087D792 /* AuthButton.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +269,10 @@
 				77693EA22C452AB00087D792 /* Screen3.swift in Sources */,
 				77693E9C2C450DFB0087D792 /* Splash.swift in Sources */,
 				77693EA72C452DE50087D792 /* OnboardingView.swift in Sources */,
+				77693EB52C453BF20087D792 /* AuthButton.swift in Sources */,
+				77693EB32C453BCC0087D792 /* Logo.swift in Sources */,
+				77693EB12C45378D0087D792 /* LoginView.swift in Sources */,
+				77693EB72C4540160087D792 /* RegisterView.swift in Sources */,
 				77693EA52C452D2A0087D792 /* Route.swift in Sources */,
 				77693E872C450BCC0087D792 /* HomeQuestApp.swift in Sources */,
 			);
