@@ -17,88 +17,30 @@ struct HomeView: View {
             Color.gray.opacity(0.1)
                 .ignoresSafeArea()
             
-            VStack (alignment: .leading, spacing: 12){
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Let's Find your")
-                            .foregroundStyle(.gray)
-                        Text("Favorite Home")
-                            .fontWeight(.semibold)
-                    }
-                    .font(.title2)
+            NavigationStack {
+                VStack (alignment: .leading, spacing: 12){
+                    profileHeader
                     
-                    Spacer()
-                    
-                    Circle()
-                        .fill(.gray.opacity(0.5))
-                        .frame(width: 60, height: 60)
-                }
-                
-                
-                ScrollView {
-                    HStack {
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                            TextField("Search by Address or City", text: $searchText)
-                        }
-                        .padding()
-                        .frame(height: 50)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.primary, lineWidth: 0.5)
-                        }
-                        
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                            .foregroundStyle(.white)
-                            .font(.title2)
-                            .padding(8)
-                            .background(.blue)
-                            .cornerRadius(15)
-                    }
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(filterButtons, id: \.self) { filter in
-                                FilterButtons(title: filter, color: .blue, isSelected: selectedFilter == filter)
-                                    .onTapGesture {
-                                        selectedFilter = filter
-                                    }
-                            }
-                        }
+                    ScrollView {
+                        seachField
+                        filterCapsules
+                        featuredProperties
+                        propertiesNearYou
                     }
                     .scrollIndicators(.hidden)
                     
-                    
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(0..<10) { _ in
-                                HouseDetail()
-                            }
-                        }
-                    }
-                    .scrollIndicators(.hidden)
-                    
-                    Text("Near You")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                     
-                    ForEach(0..<10) { _ in
-                        HouseRowDetail()
-                    }
-                    
                 }
-                .scrollIndicators(.hidden)
-     
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
         }
     }
 }
 
 #Preview {
-    HomeView()
-//    FilterButtons(color: .blue)
+    NavigationStack {
+        HomeView()
+    }
+    //    FilterButtons(color: .blue)
 }
 
 
@@ -112,9 +54,109 @@ struct FilterButtons: View {
             .fill(isSelected ? color.opacity(0.1) : Color.gray.opacity(0.1))
             .frame(width: 130, height: 40)
             .overlay {
-              Text(title)
+                Text(title)
                     .font(.headline)
                     .foregroundStyle(isSelected ? color : .gray)
             }
+    }
+}
+
+
+extension HomeView {
+    private var profileHeader: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text("Let's Find your")
+                    .foregroundStyle(.gray)
+                Text("Favorite Home")
+                    .fontWeight(.semibold)
+            }
+            .font(.title2)
+            
+            Spacer()
+            
+            Circle()
+                .fill(.gray.opacity(0.5))
+                .frame(width: 60, height: 60)
+        }
+    }
+    
+    private var seachField: some View {
+        HStack {
+            HStack {
+                Image(systemName: "magnifyingglass")
+                TextField("Search by Address or City", text: $searchText)
+            }
+            .padding()
+            .frame(height: 50)
+            .overlay {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.primary, lineWidth: 0.5)
+            }
+            
+            Image(systemName: "line.3.horizontal.decrease.circle")
+                .foregroundStyle(.white)
+                .font(.title2)
+                .padding(8)
+                .background(.blue)
+                .cornerRadius(15)
+        }
+        .padding(.top, 10)
+    }
+    
+    private var filterCapsules: some View {
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(filterButtons, id: \.self) { filter in
+                    FilterButtons(title: filter, color: .blue, isSelected: selectedFilter == filter)
+                        .onTapGesture {
+                            selectedFilter = filter
+                        }
+                }
+            }
+            .padding(.top, 6)
+        }
+        .scrollIndicators(.hidden)
+    }
+    
+    
+    private var featuredProperties: some View {
+        ScrollView(.horizontal) {
+            HStack(spacing: 2) {
+                ForEach(0..<10) { _ in
+                    NavigationLink {
+                        PropertyDetail()
+                            .navigationBarBackButtonHidden()
+                        
+                    } label: {
+                        HouseDetail()
+                    }
+                    .tint(.primary)
+                }
+            }
+            .padding(.top, 6)
+        }
+        .scrollIndicators(.hidden)
+    }
+    
+    private var propertiesNearYou: some View {
+        VStack {
+            Text("Near You")
+                .font(.title2)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, 16)
+            
+            ForEach(0..<6) { _ in
+                NavigationLink {
+                    PropertyDetail()
+                        .navigationBarBackButtonHidden()
+                    
+                } label: {
+                    HouseRowDetail()
+                }
+                .tint(.primary)
+            }
+        }
     }
 }

@@ -26,6 +26,8 @@
 		77693EC42C454C650087D792 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EC32C454C650087D792 /* RootView.swift */; };
 		77693EC62C4554C50087D792 /* HouseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EC52C4554C50087D792 /* HouseDetail.swift */; };
 		77693EC82C4559C60087D792 /* HouseRowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EC72C4559C60087D792 /* HouseRowDetail.swift */; };
+		77F1A65D2C4566C200EE5D17 /* PropertyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */; };
+		77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		77693EC32C454C650087D792 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		77693EC52C4554C50087D792 /* HouseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetail.swift; sourceTree = "<group>"; };
 		77693EC72C4559C60087D792 /* HouseRowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRowDetail.swift; sourceTree = "<group>"; };
+		77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetail.swift; sourceTree = "<group>"; };
+		77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCapsule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 		77693E952C450D930087D792 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				77F1A65A2C4566AA00EE5D17 /* Propertydetail */,
 				77693EC22C454C4A0087D792 /* Root */,
 				77693EA82C4533A40087D792 /* AuthViews */,
 				77693EB92C45464E0087D792 /* Maintab */,
@@ -256,6 +261,31 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		77F1A65A2C4566AA00EE5D17 /* Propertydetail */ = {
+			isa = PBXGroup;
+			children = (
+				77F1A65E2C456F7F00EE5D17 /* Components */,
+				77F1A65B2C4566B700EE5D17 /* View */,
+			);
+			path = Propertydetail;
+			sourceTree = "<group>";
+		};
+		77F1A65B2C4566B700EE5D17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77F1A65E2C456F7F00EE5D17 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77693EBB2C45465E0087D792 /* Maintab.swift in Sources */,
+				77F1A65D2C4566C200EE5D17 /* PropertyDetail.swift in Sources */,
 				77693EC12C4547770087D792 /* HomeView.swift in Sources */,
 				77693E892C450BCC0087D792 /* ContentView.swift in Sources */,
 				77693EC62C4554C50087D792 /* HouseDetail.swift in Sources */,
@@ -341,6 +372,7 @@
 				77693EB12C45378D0087D792 /* LoginView.swift in Sources */,
 				77693EB72C4540160087D792 /* RegisterView.swift in Sources */,
 				77693EA52C452D2A0087D792 /* Route.swift in Sources */,
+				77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */,
 				77693E872C450BCC0087D792 /* HomeQuestApp.swift in Sources */,
 				77693EC42C454C650087D792 /* RootView.swift in Sources */,
 			);
