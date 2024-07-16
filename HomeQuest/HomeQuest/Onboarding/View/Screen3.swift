@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Screen3: View {
     @Binding var onboardingState: Int
-    @State private var path = NavigationPath()
+    @State private var navigateToLogin: Bool = false
+  
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             VStack(spacing: 18) {
                 Spacer()
                 Image("Frame 1171275472")
@@ -63,16 +64,20 @@ struct Screen3: View {
                         .background(.blue)
                         .clipShape(Circle())
                         .onTapGesture {
-                            path.append(1)
+                            navigateToLogin.toggle()
+                            
+                            // set onboarding flag as complete
+                            UserDefaults.standard.setValue(true, forKey: "onboardingComplete")
                         }
                 }
                 .frame(maxWidth: .infinity, alignment: .bottom)
               
             }
             .padding(.horizontal)
-            .navigationDestination(for: Int.self) { _ in
+            .navigationDestination(isPresented: $navigateToLogin, destination: {
                 LoginView()
-            }
+                    .navigationBarBackButtonHidden()
+            })
         }
     }
 }
