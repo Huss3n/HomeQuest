@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var searchText: String = ""
     @State private var selectedFilter: String = "Recomended"
     var filterButtons: [String] = ["Recomended", "Top Rates", "Best Offers"]
+    @State private var showProfile: Bool = false
     
     var body: some View {
         ZStack {
@@ -28,6 +29,11 @@ struct HomeView: View {
                         propertiesNearYou
                     }
                     .scrollIndicators(.hidden)
+                    .confirmationDialog("Logout", isPresented: $showProfile) {
+                        Button("Logout", role: .destructive, action: {
+                            UserDefaults.standard.setValue(true, forKey: "userNotSignedIn")
+                        })
+                    }
                     
                 }
                 .padding(.horizontal)
@@ -75,9 +81,17 @@ extension HomeView {
             
             Spacer()
             
-            Circle()
-                .fill(.gray.opacity(0.5))
-                .frame(width: 60, height: 60)
+            
+            Image("pic1")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .scaledToFit()
+                .clipShape(Circle())
+                .onTapGesture {
+                    showProfile.toggle()
+                }
+                
+            
         }
     }
     

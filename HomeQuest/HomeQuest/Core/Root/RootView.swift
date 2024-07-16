@@ -9,15 +9,24 @@ import SwiftUI
 
 struct RootView: View {
     @AppStorage("userNotSignedIn") var userNotSignedIn: Bool = true
+    @AppStorage("onboardingComplete") var onboardingComplete: Bool = false
     
     var body: some View {
-        Maintab()
-            .fullScreenCover(isPresented: $userNotSignedIn, content: {
-                LoginView()
-            })
+        
+        if !onboardingComplete {
+            OnboardingView()
+            
+        } else {
+            Maintab()
+                .fullScreenCover(isPresented: $userNotSignedIn, content: {
+                    LoginView()
+                })
+        }
     }
 }
 
 #Preview {
-    RootView()
+    NavigationStack {
+        RootView()
+    }
 }

@@ -27,9 +27,13 @@ enum PropertyDetailStates {
 struct PropertyDetail: View {
     @Environment(\.dismiss) var dismiss
     var active: [PropertyDetailStates] = [.description, .gallery, .review]
-    @State private var selectedTab: PropertyDetailStates = .gallery
     
-    @State private var selectedImage: Bool = false
+    @State private var selectedTab: PropertyDetailStates = .description
+    
+    @State private var selectedImage: String? = nil
+    
+    @State private var commentLikeCount: Int = 5
+    @State private var commentDislikeCount: Int = 2
     
     var columns: [GridItem] = [
         GridItem(.flexible(), spacing: nil),
@@ -39,59 +43,66 @@ struct PropertyDetail: View {
     var images = ["pic1", "pic2", "pic3", "pic4", "pic5", "pic6", "pic7", "pic8", "pic9"]
     
     var body: some View {
-        VStack(spacing: 20) {
-            propertImages
-            
-            ScrollView {
-                propertyRating
-                propertyName
-                activeTabSelection
+        ZStack {
+            VStack(spacing: 20) {
+                propertImages
                 
-                if selectedTab == .description {
-                    description
-                } else if selectedTab == .gallery {
-                    LazyVGrid(columns: columns, content: {
-                        ForEach(images, id: \.self) { image in
-                            
-                            ZStack {
-                                Image(image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .blur(radius: selectedImage ? 4 : 0)
-                                
-                                if selectedImage {
-                                    Image(image)
-                                        .resizable()
-                                        .scaledToFit()
-                                }
-                            }
-                         
+                ScrollView {
+                    propertyRating
+                    propertyName
+                    activeTabSelection
+                    
+                    if selectedTab == .description {
+                        description
+                    } else if selectedTab == .gallery {
+                        gallery
+                    } else {
+                        ForEach(0..<10) { _ in
+                            RealtorPreview()
+                                .padding(.horizontal)
                         }
-                    })
+                    }
+                    
+                    Divider()
+                    bookNowButton
+                    
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(height: 30)
                     
                 }
-                
-                
-                Divider()
-                bookNowButton
-                
-                Rectangle()
-                    .fill(.clear)
-                    .frame(height: 30)
-                
+                .scrollIndicators(.hidden)
             }
+            .ignoresSafeArea()
+            .toolbar(.hidden, for: .tabBar)
             
+            if let selectedImage = selectedImage {
+                Color.black.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        withAnimation {
+                            self.selectedImage = nil
+                        }
+                    }
+                
+                Image(selectedImage)
+                    .resizable()
+                    .scaledToFit()
+                    .background(Color.black)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        withAnimation {
+                            self.selectedImage = nil
+                        }
+                    }
+            }
         }
-        .ignoresSafeArea()
-        .toolbar(.hidden, for: .tabBar)
     }
 }
 
 #Preview {
     PropertyDetail()
 }
-
-
 
 extension PropertyDetail {
     
@@ -102,6 +113,22 @@ extension PropertyDetail {
             facilities
             propertyLocation
         }
+    }
+    
+    private var gallery: some View {
+        LazyVGrid(columns: columns, content: {
+            ForEach(images, id: \.self) { image in
+                Image(image)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(20)
+                    .onTapGesture {
+                        withAnimation {
+                            selectedImage = image
+                        }
+                    }
+            }
+        })
     }
     
     // MARK: propertImages
@@ -156,9 +183,8 @@ extension PropertyDetail {
         .padding(.horizontal)
     }
     
-        // MARK: propertyName
+    // MARK: propertyName
     private var propertyName: some View {
-        // MARK: Propert name
         VStack(alignment: .leading) {
             Text("Woodland Apartment")
             Text("1012 Ocean Avenue, New York, USA")
@@ -176,7 +202,9 @@ extension PropertyDetail {
                     Text(activeTab.displayName)
                         .foregroundStyle(activeTab == selectedTab ? .blue : .primary)
                         .onTapGesture {
-                            selectedTab = activeTab
+                            withAnimation(.bouncy) {
+                                selectedTab = activeTab
+                            }
                         }
                     
                     Rectangle()
@@ -190,6 +218,8 @@ extension PropertyDetail {
         .padding(.top)
     }
     
+    
+    // MARK: propertyStats
     private var propertyStats: some View {
         HStack(spacing: 12) {
             PropertyCapsule(imageName: "sizee", count: 1225, title: "sqft")
@@ -200,7 +230,7 @@ extension PropertyDetail {
         .padding(.top, 12)
     }
     
-    
+    // MARK: listingAgent
     private var listingAgent: some View {
         VStack(alignment: .leading) {
             Text("Listing Agent")
@@ -230,7 +260,7 @@ extension PropertyDetail {
         .padding(.top, 14)
     }
     
-    
+    // MARK: facilities
     private var facilities: some View {
         VStack(alignment: .leading) {
             Text("Facilities")
@@ -255,7 +285,7 @@ extension PropertyDetail {
         .padding(.top, 12)
     }
     
-    
+    // MARK: propertyLocation
     private var propertyLocation: some View {
         VStack(alignment: .leading) {
             Text("Address")
@@ -268,7 +298,6 @@ extension PropertyDetail {
             .font(.subheadline)
             .foregroundStyle(.gray)
             
-            // add a map showing location
             RoundedRectangle(cornerRadius: 20)
                 .fill(.gray.opacity(0.2))
                 .frame(maxWidth: .infinity)
@@ -278,6 +307,8 @@ extension PropertyDetail {
         .padding(.top, 16)
     }
     
+    
+    // MARK: bookNowButton
     private var bookNowButton: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
@@ -286,7 +317,7 @@ extension PropertyDetail {
                     .fontWeight(.semibold)
                 
                 HStack(alignment: .center) {
-                    Text("$350").foregroundStyle(.blue).font(.headline)
+                    Text("Ksh 50,000").foregroundStyle(.blue).font(.headline)
                     Text("/ month")
                         .foregroundStyle(.gray)
                     
@@ -295,8 +326,8 @@ extension PropertyDetail {
                     Text("Book Now")
                         .font(.headline)
                         .foregroundStyle(.white)
-                        .padding()
-                        .padding(.horizontal, 32)
+                        .padding(12)
+                        .padding(.horizontal)
                         .background(.blue)
                         .clipShape(Capsule())
                 }
@@ -307,3 +338,4 @@ extension PropertyDetail {
         .padding(.top, 16)
     }
 }
+

@@ -14,14 +14,12 @@ struct Logo: View {
                 .renderingMode(.template)
                 .resizable()
                 .foregroundColor(Color.blue)
-                .scaledToFit()
                 .frame(width: 40, height: 40)
             
             Text("HomeQuest")
                 .font(.title2.bold())
                 .foregroundStyle(.blue)
         }
-        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

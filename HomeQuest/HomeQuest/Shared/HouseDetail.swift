@@ -20,7 +20,7 @@ struct HouseDetail: View {
                 .font(.title3.bold())
             
             
-            Text("$340/month")
+            Text("Ksh 50,000/month")
                 .foregroundStyle(.blue)
             
             HStack {
