@@ -11,7 +11,9 @@ import SwiftUI
 struct HomeQuestApp: App {
     var body: some Scene {
         WindowGroup {
-            RootView()
+            NavigationStack {
+                RootView()
+            }
         }
     }
 }
