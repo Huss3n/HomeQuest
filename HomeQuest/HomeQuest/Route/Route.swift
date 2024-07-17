@@ -8,7 +8,15 @@
 import Foundation
 import SwiftUI
 
-enum Route: Hashable {
+enum Route {
+    static let routes: [NavigationPaths: AnyView] = [
+        .login: AnyView(LoginView()),
+        .maintab: AnyView(Maintab())
+    ]
+}
+
+
+enum NavigationPaths: CaseIterable {
     case login
-    case home
+    case maintab
 }

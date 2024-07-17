@@ -16,55 +16,58 @@ struct LoginView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 16) {
-                // MARK: Logo
-               Logo()
-                Text("Sign In")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .padding(.top, 12)
-                
-                Text("Username")
-                usernameField
-                
-                Text("Password")
-                passwordField
-                
-                
-                NavigationLink("Create Account") {
-                    RegisterView()
-                }
-                .frame(maxWidth: .infinity, alignment: .trailing)
-
-                AuthButton(title: "Sign In", action: { })
-                
-                HStack {
-                    Rectangle()
-                        .frame(width: 60, height: 1)
-                    Text("Or continue with")
-                    Rectangle()
-                        .frame(width: 60, height: 1)
-                }
-                .foregroundStyle(.gray)
-                .font(.callout)
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-                Image("ios_dark_sq_na")
+            ScrollView {
+                VStack(alignment: .leading, spacing: 12) {
+                    Logo()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    
+                    Text("Sign In")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .padding(.top, 12)
+                    
+                    Text("Username")
+                    usernameField
+                    
+                    Text("Password")
+                    passwordField
+                    
+                    
+                    NavigationLink("Create Account") {
+                        RegisterView()
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    
+                    AuthButton(title: "Sign In", action: {
+                        UserDefaults.standard.setValue(false, forKey: "userNotSignedIn")
+                    })
+                    
+                    HStack {
+                        Rectangle()
+                            .frame(width: 60, height: 1)
+                        Text("Or continue with")
+                        Rectangle()
+                            .frame(width: 60, height: 1)
+                    }
+                    .foregroundStyle(.gray)
+                    .font(.callout)
                     .frame(maxWidth: .infinity, alignment: .center)
-                
-                Spacer()
-            }
-            .padding(.top, 32)
-            .padding(.horizontal)
-            .onAppear {
-                usernameIsFocused = true
+                    
+                    Image("ios_dark_sq_na")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    
+                }
+                .padding(.top, 32)
+                .padding(.horizontal)
             }
         }
     }
 }
 
 #Preview {
-    LoginView()
+    NavigationStack {
+        LoginView()
+    }
 }
 
 

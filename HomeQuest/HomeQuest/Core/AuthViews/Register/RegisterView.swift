@@ -17,45 +17,46 @@ struct RegisterView: View {
     @FocusState var passwordIsFocused: Bool
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Logo()
-            Text("Create Account")
-                .font(.title2)
-                .fontWeight(.semibold)
-                .padding(.top, 12)
-            
-            Text("Email")
-            emailField
-            
-            Text("Username")
-            usernameField
-            
-            Text("Password")
-            passwordField
-            
-            AuthButton(title: "Create Account", action: { })
-            
-            HStack {
-                Rectangle()
-                    .frame(width: 60, height: 1)
-                Text("Or continue with")
-                Rectangle()
-                    .frame(width: 60, height: 1)
-            }
-            .foregroundStyle(.gray)
-            .font(.callout)
-            .frame(maxWidth: .infinity, alignment: .center)
-            
-            Image("ios_dark_sq_na")
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Logo()
+                Text("Create Account")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.top, 12)
+                
+                Text("Email")
+                emailField
+                
+                Text("Username")
+                usernameField
+                
+                Text("Password")
+                passwordField
+                
+                AuthButton(title: "Create Account", action: { })
+                
+                HStack {
+                    Rectangle()
+                        .frame(width: 60, height: 1)
+                    Text("Or continue with")
+                    Rectangle()
+                        .frame(width: 60, height: 1)
+                }
+                .foregroundStyle(.gray)
+                .font(.callout)
                 .frame(maxWidth: .infinity, alignment: .center)
-            
-            Spacer()
+                
+                Image("ios_dark_sq_na")
+                    .frame(maxWidth: .infinity, alignment: .center)
+            }
+            .padding(.top, 32)
+            .padding(.horizontal)
+            .onAppear {
+                emailIsFocused = true
+            }
         }
-        .padding(.top, 32)
-        .padding(.horizontal)
-        .onAppear {
-            emailIsFocused = true
-        }
+        .scrollIndicators(.hidden)
     }
 }
 
