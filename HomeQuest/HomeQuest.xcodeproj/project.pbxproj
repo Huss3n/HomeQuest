@@ -29,6 +29,16 @@
 		77F1A65D2C4566C200EE5D17 /* PropertyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */; };
 		77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */; };
 		77F92FA42C46A91A00B212DC /* RealtorRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FA32C46A91A00B212DC /* RealtorRating.swift */; };
+		77F92FA62C46BD8B00B212DC /* MapLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FA52C46BD8B00B212DC /* MapLocation.swift */; };
+		77F92FA82C46BDBE00B212DC /* PropertyLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FA72C46BDBE00B212DC /* PropertyLocation.swift */; };
+		77F92FAA2C46C36C00B212DC /* BookNowPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FA92C46C36C00B212DC /* BookNowPopUp.swift */; };
+		77F92FAC2C46C92A00B212DC /* BookTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FAB2C46C92A00B212DC /* BookTour.swift */; };
+		77F92FAE2C46D23A00B212DC /* ReceivedBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FAD2C46D23A00B212DC /* ReceivedBooking.swift */; };
+		77F92FB02C46E9B400B212DC /* RealEstateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FAF2C46E9B400B212DC /* RealEstateView.swift */; };
+		77F92FB22C46FE4400B212DC /* ReviewSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FB12C46FE4400B212DC /* ReviewSummary.swift */; };
+		77F92FB42C47032A00B212DC /* AddCardDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FB32C47032A00B212DC /* AddCardDetails.swift */; };
+		77F92FB72C47035200B212DC /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FB62C47035200B212DC /* PaymentMethod.swift */; };
+		77F92FB92C470CB300B212DC /* AddPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FB82C470CB300B212DC /* AddPhoneNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +65,16 @@
 		77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetail.swift; sourceTree = "<group>"; };
 		77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCapsule.swift; sourceTree = "<group>"; };
 		77F92FA32C46A91A00B212DC /* RealtorRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtorRating.swift; sourceTree = "<group>"; };
+		77F92FA52C46BD8B00B212DC /* MapLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocation.swift; sourceTree = "<group>"; };
+		77F92FA72C46BDBE00B212DC /* PropertyLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLocation.swift; sourceTree = "<group>"; };
+		77F92FA92C46C36C00B212DC /* BookNowPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNowPopUp.swift; sourceTree = "<group>"; };
+		77F92FAB2C46C92A00B212DC /* BookTour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTour.swift; sourceTree = "<group>"; };
+		77F92FAD2C46D23A00B212DC /* ReceivedBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedBooking.swift; sourceTree = "<group>"; };
+		77F92FAF2C46E9B400B212DC /* RealEstateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealEstateView.swift; sourceTree = "<group>"; };
+		77F92FB12C46FE4400B212DC /* ReviewSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummary.swift; sourceTree = "<group>"; };
+		77F92FB32C47032A00B212DC /* AddCardDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardDetails.swift; sourceTree = "<group>"; };
+		77F92FB62C47035200B212DC /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentMethod.swift; path = HomeQuest/Core/Propertydetail/PaymentMethod.swift; sourceTree = SOURCE_ROOT; };
+		77F92FB82C470CB300B212DC /* AddPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhoneNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +286,7 @@
 		77F1A65A2C4566AA00EE5D17 /* Propertydetail */ = {
 			isa = PBXGroup;
 			children = (
+				77F92FB52C47034000B212DC /* Model */,
 				77F1A65E2C456F7F00EE5D17 /* Components */,
 				77F1A65B2C4566B700EE5D17 /* View */,
 			);
@@ -276,6 +297,12 @@
 			isa = PBXGroup;
 			children = (
 				77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */,
+				77F92FAB2C46C92A00B212DC /* BookTour.swift */,
+				77F92FAD2C46D23A00B212DC /* ReceivedBooking.swift */,
+				77F92FAF2C46E9B400B212DC /* RealEstateView.swift */,
+				77F92FB12C46FE4400B212DC /* ReviewSummary.swift */,
+				77F92FB32C47032A00B212DC /* AddCardDetails.swift */,
+				77F92FB82C470CB300B212DC /* AddPhoneNumber.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,8 +312,19 @@
 			children = (
 				77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */,
 				77F92FA32C46A91A00B212DC /* RealtorRating.swift */,
+				77F92FA52C46BD8B00B212DC /* MapLocation.swift */,
+				77F92FA72C46BDBE00B212DC /* PropertyLocation.swift */,
+				77F92FA92C46C36C00B212DC /* BookNowPopUp.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		77F92FB52C47034000B212DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77F92FB62C47035200B212DC /* PaymentMethod.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77F92FB22C46FE4400B212DC /* ReviewSummary.swift in Sources */,
 				77F92FA42C46A91A00B212DC /* RealtorRating.swift in Sources */,
 				77693EBB2C45465E0087D792 /* Maintab.swift in Sources */,
 				77F1A65D2C4566C200EE5D17 /* PropertyDetail.swift in Sources */,
@@ -366,18 +405,27 @@
 				77693E892C450BCC0087D792 /* ContentView.swift in Sources */,
 				77693EC62C4554C50087D792 /* HouseDetail.swift in Sources */,
 				77693EA02C452A080087D792 /* Screen2.swift in Sources */,
+				77F92FA82C46BDBE00B212DC /* PropertyLocation.swift in Sources */,
+				77F92FA62C46BD8B00B212DC /* MapLocation.swift in Sources */,
+				77F92FB72C47035200B212DC /* PaymentMethod.swift in Sources */,
 				77693EC82C4559C60087D792 /* HouseRowDetail.swift in Sources */,
 				77693E9E2C45267D0087D792 /* Screen1.swift in Sources */,
 				77693EA22C452AB00087D792 /* Screen3.swift in Sources */,
 				77693E9C2C450DFB0087D792 /* Splash.swift in Sources */,
 				77693EA72C452DE50087D792 /* OnboardingView.swift in Sources */,
+				77F92FAA2C46C36C00B212DC /* BookNowPopUp.swift in Sources */,
 				77693EB52C453BF20087D792 /* AuthButton.swift in Sources */,
 				77693EB32C453BCC0087D792 /* Logo.swift in Sources */,
 				77693EB12C45378D0087D792 /* LoginView.swift in Sources */,
 				77693EB72C4540160087D792 /* RegisterView.swift in Sources */,
+				77F92FB42C47032A00B212DC /* AddCardDetails.swift in Sources */,
+				77F92FAE2C46D23A00B212DC /* ReceivedBooking.swift in Sources */,
+				77F92FB02C46E9B400B212DC /* RealEstateView.swift in Sources */,
 				77693EA52C452D2A0087D792 /* Route.swift in Sources */,
+				77F92FB92C470CB300B212DC /* AddPhoneNumber.swift in Sources */,
 				77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */,
 				77693E872C450BCC0087D792 /* HomeQuestApp.swift in Sources */,
+				77F92FAC2C46C92A00B212DC /* BookTour.swift in Sources */,
 				77693EC42C454C650087D792 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
