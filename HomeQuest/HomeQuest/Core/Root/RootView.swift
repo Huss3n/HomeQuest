@@ -17,10 +17,12 @@ struct RootView: View {
             OnboardingView()
             
         } else {
-            Maintab()
-                .fullScreenCover(isPresented: $userNotSignedIn, content: {
-                    LoginView()
-                })
+            NavigationStack {
+                Maintab()
+                    .fullScreenCover(isPresented: $userNotSignedIn, content: {
+                        LoginView()
+                    })
+            }
         }
     }
 }

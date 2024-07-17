@@ -6,6 +6,12 @@
 //
 
 import SwiftUI
+import MapKit
+
+enum BookingOptions {
+    case tour
+    case realEstate
+}
 
 enum PropertyDetailStates {
     case description
@@ -26,7 +32,10 @@ enum PropertyDetailStates {
 
 struct PropertyDetail: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     var active: [PropertyDetailStates] = [.description, .gallery, .review]
+    
+    @State private var bookingOption: BookingOptions = .tour
     
     @State private var selectedTab: PropertyDetailStates = .description
     
@@ -34,6 +43,17 @@ struct PropertyDetail: View {
     
     @State private var commentLikeCount: Int = 5
     @State private var commentDislikeCount: Int = 2
+    
+    @State private var bookingButtonPressed: Bool = false
+    @State private var tourButtonPressed: Bool = false
+    @State private var realEstateButtonPressed: Bool = false
+    
+    let position = MapCameraPosition.region(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: -1.2767338, longitude: 36.7879011),
+            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+        )
+    )
     
     var columns: [GridItem] = [
         GridItem(.flexible(), spacing: nil),
@@ -63,18 +83,40 @@ struct PropertyDetail: View {
                         }
                     }
                     
-                    Divider()
-                    bookNowButton
                     
                     Rectangle()
                         .fill(.clear)
-                        .frame(height: 30)
+                        .frame(height: 10)
                     
                 }
                 .scrollIndicators(.hidden)
+                
+                bookNowButton
             }
             .ignoresSafeArea()
-            .toolbar(.hidden, for: .tabBar)
+            .toolbar(.hidden, for: .tabBar) // MARK: Book now Sheet
+            .sheet(isPresented: $bookingButtonPressed, content: {
+                BookNowPopUp(bookingOption: $bookingOption) {
+                    if bookingOption == .tour {
+                        bookingButtonPressed.toggle()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            tourButtonPressed.toggle()
+                        }
+                    } else if bookingOption == .realEstate {
+                        bookingButtonPressed.toggle()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            realEstateButtonPressed.toggle()
+                        }
+                    }
+                }
+                    .presentationDetents([.fraction(0.15)])
+            })
+            .sheet(isPresented: $tourButtonPressed, content: { // MARK: Tour Sheet
+                BookTour(tourButtonPressed: $tourButtonPressed)
+            })
+            .fullScreenCover(isPresented: $realEstateButtonPressed, content: {
+                RealEstateView(realEstateButtonPressed: $realEstateButtonPressed)
+            })
             
             if let selectedImage = selectedImage {
                 Color.black.opacity(0.5)
@@ -131,7 +173,7 @@ extension PropertyDetail {
         })
     }
     
-    // MARK: propertImages
+    // MARK: Propert Images
     private var propertImages: some View {
         ZStack(alignment: .top) {
             Image("house")
@@ -164,7 +206,7 @@ extension PropertyDetail {
         }
     }
     
-    // MARK: propertyRating
+    // MARK: Property Rating
     private var propertyRating: some View {
         HStack {
             Image(systemName: "star.fill")
@@ -183,18 +225,18 @@ extension PropertyDetail {
         .padding(.horizontal)
     }
     
-    // MARK: propertyName
+    // MARK: Property Name
     private var propertyName: some View {
         VStack(alignment: .leading) {
             Text("Woodland Apartment")
-            Text("1012 Ocean Avenue, New York, USA")
+            Text("Ocean Avenue, Kileleshwa.")
                 .foregroundStyle(.gray)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal)
     }
     
-    // MARK: activeTabSelection
+    // MARK: ActiveTab Selection
     private var activeTabSelection: some View {
         HStack(spacing: 20) {
             ForEach(active, id: \.self) { activeTab in
@@ -219,7 +261,7 @@ extension PropertyDetail {
     }
     
     
-    // MARK: propertyStats
+    // MARK: Property Stats
     private var propertyStats: some View {
         HStack(spacing: 12) {
             PropertyCapsule(imageName: "sizee", count: 1225, title: "sqft")
@@ -230,7 +272,7 @@ extension PropertyDetail {
         .padding(.top, 12)
     }
     
-    // MARK: listingAgent
+    // MARK: Listing Agent
     private var listingAgent: some View {
         VStack(alignment: .leading) {
             Text("Listing Agent")
@@ -238,14 +280,17 @@ extension PropertyDetail {
                 .fontWeight(.semibold)
             
             HStack(spacing: 12) {
-                Circle()
-                    .fill(.gray.opacity(0.3))
+                Image("pic1")
+                    .resizable()
                     .frame(width: 50, height: 50)
+                    .scaledToFit()
+                    .clipShape(Circle())
                 
                 VStack(alignment: .leading) {
                     Text("Hussein Aiak")
                         .fontWeight(.semibold)
-                    Text("Patner")
+                    Text("Realtor")
+                        .foregroundStyle(.gray)
                 }
                 
                 Spacer()
@@ -260,7 +305,7 @@ extension PropertyDetail {
         .padding(.top, 14)
     }
     
-    // MARK: facilities
+    // MARK: Facilities
     private var facilities: some View {
         VStack(alignment: .leading) {
             Text("Facilities")
@@ -285,7 +330,7 @@ extension PropertyDetail {
         .padding(.top, 12)
     }
     
-    // MARK: propertyLocation
+    // MARK: Property Location
     private var propertyLocation: some View {
         VStack(alignment: .leading) {
             Text("Address")
@@ -293,15 +338,12 @@ extension PropertyDetail {
                 .fontWeight(.semibold)
             HStack {
                 Image(systemName: "mappin")
-                Text("1012 Ocean Avenue, New York, USA")
+                Text("Ocean Avenue, Kileleshwa.")
             }
             .font(.subheadline)
             .foregroundStyle(.gray)
             
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.gray.opacity(0.2))
-                .frame(maxWidth: .infinity)
-                .frame(height: 250)
+            PropertyLocation()
         }
         .padding(.horizontal)
         .padding(.top, 16)
@@ -311,31 +353,31 @@ extension PropertyDetail {
     // MARK: bookNowButton
     private var bookNowButton: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text("Total Price")
                     .font(.title3)
                     .fontWeight(.semibold)
-                
                 HStack(alignment: .center) {
                     Text("Ksh 50,000").foregroundStyle(.blue).font(.headline)
-                    Text("/ month")
+                    Text("/month")
                         .foregroundStyle(.gray)
-                    
                     Spacer()
-                    
                     Text("Book Now")
                         .font(.headline)
                         .foregroundStyle(.white)
-                        .padding(12)
-                        .padding(.horizontal)
+                        .frame(width: 120, height: 45)
                         .background(.blue)
                         .clipShape(Capsule())
+                        .onTapGesture {
+                            bookingButtonPressed.toggle()
+                        }
                 }
-                
             }
         }
+        .padding()
         .padding(.horizontal)
-        .padding(.top, 16)
+        .padding(.bottom, 20)
+        .clipShape(.rect(topLeadingRadius: 20, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 20))
     }
 }
 
