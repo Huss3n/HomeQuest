@@ -10,6 +10,11 @@
 		774853F72C47B67700655C6B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774853F62C47B67700655C6B /* MapView.swift */; };
 		7748541D2C490B4000655C6B /* PropertyLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748541C2C490B4000655C6B /* PropertyLocations.swift */; };
 		7748541F2C490BBC00655C6B /* MapViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748541E2C490BBC00655C6B /* MapViewmodel.swift */; };
+		774854232C493E2100655C6B /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774854222C493E2100655C6B /* SwipeView.swift */; };
+		774854262C49408200655C6B /* HeaderFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774854252C49408200655C6B /* HeaderFilter.swift */; };
+		774854282C49485400655C6B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774854272C49485400655C6B /* ImageLoader.swift */; };
+		7748542B2C494BC100655C6B /* PropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748542A2C494BC100655C6B /* PropertyModel.swift */; };
+		7748542D2C49502600655C6B /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748542C2C49502600655C6B /* MockData.swift */; };
 		77693E872C450BCC0087D792 /* HomeQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E862C450BCC0087D792 /* HomeQuestApp.swift */; };
 		77693E892C450BCC0087D792 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E882C450BCC0087D792 /* ContentView.swift */; };
 		77693E8B2C450BCE0087D792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77693E8A2C450BCE0087D792 /* Assets.xcassets */; };
@@ -48,6 +53,11 @@
 		774853F62C47B67700655C6B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		7748541C2C490B4000655C6B /* PropertyLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLocations.swift; sourceTree = "<group>"; };
 		7748541E2C490BBC00655C6B /* MapViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewmodel.swift; sourceTree = "<group>"; };
+		774854222C493E2100655C6B /* SwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		774854252C49408200655C6B /* HeaderFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFilter.swift; sourceTree = "<group>"; };
+		774854272C49485400655C6B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		7748542A2C494BC100655C6B /* PropertyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyModel.swift; sourceTree = "<group>"; };
+		7748542C2C49502600655C6B /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		77693E832C450BCC0087D792 /* HomeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77693E862C450BCC0087D792 /* HomeQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeQuestApp.swift; sourceTree = "<group>"; };
 		77693E882C450BCC0087D792 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +138,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		774854202C493E0400655C6B /* Swipe View */ = {
+			isa = PBXGroup;
+			children = (
+				774854242C493F7000655C6B /* Components */,
+				774854212C493E1500655C6B /* View */,
+			);
+			path = "Swipe View";
+			sourceTree = "<group>";
+		};
+		774854212C493E1500655C6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				774854222C493E2100655C6B /* SwipeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		774854242C493F7000655C6B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				774854252C49408200655C6B /* HeaderFilter.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		774854292C494BB400655C6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7748542A2C494BC100655C6B /* PropertyModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		77693E7A2C450BCC0087D792 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +190,7 @@
 		77693E852C450BCC0087D792 /* HomeQuest */ = {
 			isa = PBXGroup;
 			children = (
+				774854292C494BB400655C6B /* Model */,
 				77693E942C450D8F0087D792 /* App */,
 				77693E992C450DE20087D792 /* Onboarding */,
 				77693E952C450D930087D792 /* Core */,
@@ -180,6 +224,7 @@
 		77693E952C450D930087D792 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				774854202C493E0400655C6B /* Swipe View */,
 				774853F32C47B65E00655C6B /* MapView */,
 				77F1A65A2C4566AA00EE5D17 /* Propertydetail */,
 				77693EC22C454C4A0087D792 /* Root */,
@@ -209,6 +254,8 @@
 			children = (
 				77693EC52C4554C50087D792 /* HouseDetail.swift */,
 				77693EC72C4559C60087D792 /* HouseRowDetail.swift */,
+				774854272C49485400655C6B /* ImageLoader.swift */,
+				7748542C2C49502600655C6B /* MockData.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -445,6 +492,7 @@
 				77F1A65D2C4566C200EE5D17 /* PropertyDetail.swift in Sources */,
 				77693EC12C4547770087D792 /* HomeView.swift in Sources */,
 				77693E892C450BCC0087D792 /* ContentView.swift in Sources */,
+				7748542B2C494BC100655C6B /* PropertyModel.swift in Sources */,
 				77693EC62C4554C50087D792 /* HouseDetail.swift in Sources */,
 				77693EA02C452A080087D792 /* Screen2.swift in Sources */,
 				77F92FA82C46BDBE00B212DC /* PropertyLocation.swift in Sources */,
@@ -452,9 +500,11 @@
 				774853F72C47B67700655C6B /* MapView.swift in Sources */,
 				77F92FB72C47035200B212DC /* PaymentMethod.swift in Sources */,
 				77693EC82C4559C60087D792 /* HouseRowDetail.swift in Sources */,
+				774854282C49485400655C6B /* ImageLoader.swift in Sources */,
 				77693E9E2C45267D0087D792 /* Screen1.swift in Sources */,
 				77693EA22C452AB00087D792 /* Screen3.swift in Sources */,
 				77693E9C2C450DFB0087D792 /* Splash.swift in Sources */,
+				774854262C49408200655C6B /* HeaderFilter.swift in Sources */,
 				77693EA72C452DE50087D792 /* OnboardingView.swift in Sources */,
 				77F92FAA2C46C36C00B212DC /* BookNowPopUp.swift in Sources */,
 				77693EB52C453BF20087D792 /* AuthButton.swift in Sources */,
@@ -462,7 +512,9 @@
 				77693EB12C45378D0087D792 /* LoginView.swift in Sources */,
 				77693EB72C4540160087D792 /* RegisterView.swift in Sources */,
 				77F92FB42C47032A00B212DC /* AddCardDetails.swift in Sources */,
+				7748542D2C49502600655C6B /* MockData.swift in Sources */,
 				77F92FAE2C46D23A00B212DC /* ReceivedBooking.swift in Sources */,
+				774854232C493E2100655C6B /* SwipeView.swift in Sources */,
 				77F92FB02C46E9B400B212DC /* RealEstateView.swift in Sources */,
 				7748541F2C490BBC00655C6B /* MapViewmodel.swift in Sources */,
 				77693EA52C452D2A0087D792 /* Route.swift in Sources */,
