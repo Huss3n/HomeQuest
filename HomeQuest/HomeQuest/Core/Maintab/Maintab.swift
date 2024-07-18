@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Maintab: View {
+    
     var body: some View {
         TabView {
             HomeView()
@@ -15,7 +16,7 @@ struct Maintab: View {
                     Image(systemName: "house")
                 }
             
-            Text("My Location")
+            MapView()
                 .tabItem {
                     Image(systemName: "location.circle")
                 }

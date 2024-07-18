@@ -48,6 +48,8 @@ struct PropertyDetail: View {
     @State private var tourButtonPressed: Bool = false
     @State private var realEstateButtonPressed: Bool = false
     
+    var height = UIScreen.main.bounds.height
+    
     let position = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: -1.2767338, longitude: 36.7879011),
@@ -65,7 +67,13 @@ struct PropertyDetail: View {
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
-                propertImages
+                if height < height/2 {
+                    Image(systemName: "xmark.circle")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                } else {
+                    propertImages
+                }
+                
                 
                 ScrollView {
                     propertyRating
