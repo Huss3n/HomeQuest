@@ -23,7 +23,7 @@ struct Maintab: View {
             
             Text("My Bookmarks")
                 .tabItem {
-                    Image(systemName: "bookmark")
+                    Image(systemName: "heart")
                 }
             
             Text("My Profile")

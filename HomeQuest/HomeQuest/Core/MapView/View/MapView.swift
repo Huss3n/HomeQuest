@@ -40,7 +40,9 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView()
+    NavigationStack {
+        MapView()
+    }
 }
 
 
