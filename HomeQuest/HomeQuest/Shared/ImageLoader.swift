@@ -11,7 +11,6 @@ struct ImageLoader: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                
                 ZStack {
                     Image("house")
                         .resizable()

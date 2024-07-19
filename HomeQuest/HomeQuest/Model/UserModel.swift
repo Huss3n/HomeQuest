@@ -9,7 +9,7 @@ import Foundation
 
 
 struct UserModel {
-    let username: String
+    let fullName: String
     let email: String
     let phoneNumber: String?
     let profilePhoto: String?
