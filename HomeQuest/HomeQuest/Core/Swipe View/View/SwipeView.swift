@@ -22,6 +22,9 @@ struct SwipeView: View {
                 HeaderFilter(selectedFilter: $selectedFilter)
                     .background( Divider(), alignment: .bottom )
                 
+                PropertyCardView()
+                    .padding(.horizontal, 12)
+                
                 Spacer()
             }
         }
