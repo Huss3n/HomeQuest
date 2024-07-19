@@ -11,6 +11,7 @@ import CoreLocation
 struct PropertyModel {
     var properyName: String
     var propertyAddress: String
+    var propertyDescription: String
     var propertyCoordinites: PropertyCoordinates
     var bedrooms: Int
     var bathrooms: Int
@@ -18,7 +19,6 @@ struct PropertyModel {
     var facilities: PropertyFacilites?
     var price: Double
     var propertyImages: [String]
-
     
 }
 

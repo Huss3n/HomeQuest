@@ -11,6 +11,7 @@ struct MockData {
     static var propertyInfo: PropertyModel = PropertyModel(
         properyName: "Woodvale Grove",
         propertyAddress: "Rainy road, Kileleshwa",
+        propertyDescription: "Discover your dream home in this beautifully designed 4-bedroom, 3-bathroom property located in a peaceful and highly sought-after neighborhood. This elegant home boasts an open-concept living space, featuring a modern kitchen with high-end stainless steel appliances, a spacious living room with a cozy fireplace, and large windows that flood the home with natural light.",
         propertyCoordinites: PropertyCoordinates(latitude:  -1.2825264158431462, longitude: 36.790346343476614),
         bedrooms: 4,
         bathrooms: 3,
