@@ -8,7 +8,8 @@
 import Foundation
 import CoreLocation
 
-struct PropertyModel {
+struct PropertyModel: Identifiable, Hashable {
+    var id = UUID().hashValue
     var properyName: String
     var propertyAddress: String
     var propertyDescription: String
@@ -19,6 +20,15 @@ struct PropertyModel {
     var facilities: PropertyFacilites?
     var price: Double
     var propertyImages: [String]
+    
+    // Implement Hashable protocol
+       func hash(into hasher: inout Hasher) {
+           hasher.combine(id)
+       }
+    
+    static func == (lhs: PropertyModel, rhs: PropertyModel) -> Bool {
+        return lhs.id == rhs.id
+    }
     
 }
 

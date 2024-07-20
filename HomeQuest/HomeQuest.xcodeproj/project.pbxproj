@@ -38,6 +38,8 @@
 		77CA54BF2C4AB13E00BAF74E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BE2C4AB13E00BAF74E /* UserModel.swift */; };
 		77CA54C12C4ABBD000BAF74E /* PropertyCommentCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */; };
 		77CA54C32C4AD48B00BAF74E /* RealtorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54C22C4AD48B00BAF74E /* RealtorView.swift */; };
+		77CA54C62C4BBE2100BAF74E /* SwiftfulUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77CA54C52C4BBE2100BAF74E /* SwiftfulUI */; };
+		77CA54C92C4BC21800BAF74E /* SwipeViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54C82C4BC21800BAF74E /* SwipeViewmodel.swift */; };
 		77F1A65D2C4566C200EE5D17 /* PropertyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */; };
 		77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */; };
 		77F92FA42C46A91A00B212DC /* RealtorRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F92FA32C46A91A00B212DC /* RealtorRating.swift */; };
@@ -86,6 +88,7 @@
 		77CA54BE2C4AB13E00BAF74E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCommentCapsule.swift; sourceTree = "<group>"; };
 		77CA54C22C4AD48B00BAF74E /* RealtorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtorView.swift; sourceTree = "<group>"; };
+		77CA54C82C4BC21800BAF74E /* SwipeViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewmodel.swift; sourceTree = "<group>"; };
 		77F1A65C2C4566C200EE5D17 /* PropertyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetail.swift; sourceTree = "<group>"; };
 		77F1A65F2C456F9600EE5D17 /* PropertyCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCapsule.swift; sourceTree = "<group>"; };
 		77F92FA32C46A91A00B212DC /* RealtorRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtorRating.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77CA54C62C4BBE2100BAF74E /* SwiftfulUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +153,7 @@
 		774854202C493E0400655C6B /* Swipe View */ = {
 			isa = PBXGroup;
 			children = (
+				77CA54C72C4BC20A00BAF74E /* Viewmodel */,
 				774854242C493F7000655C6B /* Components */,
 				774854212C493E1500655C6B /* View */,
 			);
@@ -383,6 +388,14 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		77CA54C72C4BC20A00BAF74E /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				77CA54C82C4BC21800BAF74E /* SwipeViewmodel.swift */,
+			);
+			path = Viewmodel;
+			sourceTree = "<group>";
+		};
 		77F1A65A2C4566AA00EE5D17 /* Propertydetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +456,9 @@
 			dependencies = (
 			);
 			name = HomeQuest;
+			packageProductDependencies = (
+				77CA54C52C4BBE2100BAF74E /* SwiftfulUI */,
+			);
 			productName = HomeQuest;
 			productReference = 77693E832C450BCC0087D792 /* HomeQuest.app */;
 			productType = "com.apple.product-type.application";
@@ -471,6 +487,9 @@
 				Base,
 			);
 			mainGroup = 77693E7A2C450BCC0087D792;
+			packageReferences = (
+				77CA54C42C4BBE2100BAF74E /* XCRemoteSwiftPackageReference "SwiftfulUI" */,
+			);
 			productRefGroup = 77693E842C450BCC0087D792 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -539,6 +558,7 @@
 				77F92FAC2C46C92A00B212DC /* BookTour.swift in Sources */,
 				77CA54C12C4ABBD000BAF74E /* PropertyCommentCapsule.swift in Sources */,
 				77693EC42C454C650087D792 /* RootView.swift in Sources */,
+				77CA54C92C4BC21800BAF74E /* SwipeViewmodel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +764,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77CA54C42C4BBE2100BAF74E /* XCRemoteSwiftPackageReference "SwiftfulUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77CA54C52C4BBE2100BAF74E /* SwiftfulUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77CA54C42C4BBE2100BAF74E /* XCRemoteSwiftPackageReference "SwiftfulUI" */;
+			productName = SwiftfulUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77693E7B2C450BCC0087D792 /* Project object */;
 }
