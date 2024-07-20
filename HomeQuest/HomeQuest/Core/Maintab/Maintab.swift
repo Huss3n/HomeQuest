@@ -21,7 +21,7 @@ struct Maintab: View {
                     Image(systemName: "location.circle")
                 }
             
-            Text("My Bookmarks")
+            SwipeView()
                 .tabItem {
                     Image(systemName: "heart")
                 }

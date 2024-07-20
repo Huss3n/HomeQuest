@@ -159,7 +159,7 @@ extension PropertyDetail {
     private var description: some View {
         Group {
             propertyStats
-            listingAgent
+            RealtorView(user: MockData.userData)
             facilities
             propertyLocation
         }
@@ -278,39 +278,6 @@ extension PropertyDetail {
             PropertyCapsule(imageName: "security", count: 1225, title: "Safety Rank")
         }
         .padding(.top, 12)
-    }
-    
-    // MARK: Listing Agent
-    private var listingAgent: some View {
-        VStack(alignment: .leading) {
-            Text("Listing Agent")
-                .font(.title3)
-                .fontWeight(.semibold)
-            
-            HStack(spacing: 12) {
-                Image("pic1")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .scaledToFit()
-                    .clipShape(Circle())
-                
-                VStack(alignment: .leading) {
-                    Text("Hussein Aiak")
-                        .fontWeight(.semibold)
-                    Text("Realtor")
-                        .foregroundStyle(.gray)
-                }
-                
-                Spacer()
-                
-                HStack(spacing: 30) {
-                    Image("email")
-                    Image("phone")
-                }
-            }
-        }
-        .padding(.horizontal)
-        .padding(.top, 14)
     }
     
     // MARK: Facilities

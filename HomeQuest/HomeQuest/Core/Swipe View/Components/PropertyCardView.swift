@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct PropertyCardView: View {
-    var property = MockData.propertyInfo
+    var property: PropertyModel = MockData.propertyInfo
+    var user = MockData.userData
+    
+    var onCommentButtonPressed: (() -> Void)? = nil
+    var onCallButtonPressed: (() -> Void)? = nil
+    var onEmailButtonPressed: (() -> Void)? = nil
+    var onXmarkButtonPressed: (() -> Void)? = nil
+    var onCheckmarkButtonPressed: (() -> Void)? = nil
+    var onHideAndReportButtonPressed: (() -> Void)? = nil
+    var onSuperlikeButtonPressed: (() -> Void)? = nil
     
     var body: some View {
         GeometryReader { geo in
@@ -19,29 +28,44 @@ struct PropertyCardView: View {
                         .scaledToFit()
                     
                     propertyDescription
+                        .padding(.top, 16)
                         .padding(.horizontal, 8)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     facilities
+                        .padding(.top, 16)
                         .padding(.horizontal, 8)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    propertyPhotos
+                        .padding(.top, 16)
+                        .padding(.horizontal, 8)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    RealtorView(user: user)
+                        .padding(.top, 16)
+                        .padding(.horizontal, 8)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .onTapGesture {
+                            onCallButtonPressed?()
+                            onEmailButtonPressed?()
+                        }
+                    
+                    footer
+                        .padding(.top, 60)
+                        .padding(.bottom, 60)
+                        .padding(.horizontal, 24)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
                 }
             }
             .scrollIndicators(.hidden)
-            .background(
-                LinearGradient(
-                    colors: [
-                        .blue.opacity(
-                            0
-                        ),
-                        .red.opacity(
-                            0.1
-                        ),
-                        .green.opacity(0.1)
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
+            .background(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensure full coverage
+            .overlay (
+                superLike
+                    .padding(14)
+                , alignment: .bottomTrailing
             )
             .cornerRadius(32)
         }
@@ -65,12 +89,13 @@ extension PropertyCardView {
     }
     
     
+    // MARK: Header
     private var headerCell: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(property.propertyImages.randomElement()!)
+            Image(property.propertyImages[1])
                 .resizable()
             
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text("\(property.properyName), Khs \(formattedDouble(property.price))")
                     .font(.title3)
                     .fontWeight(.semibold)
@@ -79,8 +104,6 @@ extension PropertyCardView {
                     Image(systemName: "mappin")
                     Text(property.propertyAddress)
                 }
-                
-                // MARK: Property info
                 HStack {
                     Image("bed")
                     Text("\(property.bedrooms)")
@@ -93,9 +116,9 @@ extension PropertyCardView {
                 }
                 .font(.callout)
                 
-                PropertyHeartView()
+                PropertyCommentCapsule()
                     .onTapGesture {
-                        
+                        onCommentButtonPressed?()
                     }
             }
             .foregroundStyle(.white)
@@ -121,11 +144,11 @@ extension PropertyCardView {
         }
     }
     
+    // MARK: Property Description
     private var propertyDescription: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Property Decription")
+            Text("Decription")
                 .font(.headline)
-                .padding(.top, 12)
             
             Text(property.propertyDescription)
                 .font(.subheadline)
@@ -134,11 +157,11 @@ extension PropertyCardView {
         }
     }
     
+    // MARK: Property Facilities
     private var facilities: some View {
         VStack(alignment: .leading) {
-            Text("Property Facilities")
+            Text("Facilities")
                 .font(.headline)
-                .padding(.top, 12)
             
             HStack {
                 if let parking = property.facilities?.carParking {
@@ -189,4 +212,75 @@ extension PropertyCardView {
             }
         }
     }
+    
+    // MARK: Property Photos
+    private var propertyPhotos: some View {
+        VStack(alignment:.leading, spacing: 2) {
+            Text("Photos")
+                .font(.headline)
+            
+            ForEach(property.propertyImages, id: \.self) { image in
+                Image(image)
+                    .resizable()
+                    .scaledToFit()
+            }
+        }
+    }
+    
+    // MARK: Superlike
+    private var superLike: some View {
+        Image(systemName: "hexagon.fill")
+            .foregroundStyle(.yellow)
+            .font(.system(size: 60))
+            .overlay {
+                Image(systemName: "star.fill")
+                    .foregroundStyle(.blue)
+                    .font(.system(size: 30))
+            }
+            .onTapGesture {
+                onSuperlikeButtonPressed?()
+            }
+    }
+    
+    // MARK: Footer
+    private var footer: some View {
+        VStack {
+            HStack {
+                Circle()
+                    .fill(.blue)
+                    .overlay {
+                        Image(systemName: "xmark")
+                            .font(.title)
+                    }
+                    .frame(width: 60, height: 60)
+                    .onTapGesture {
+                        onXmarkButtonPressed?()
+                    }
+                
+                Spacer(minLength: 0)
+                
+                Circle()
+                    .fill(.blue)
+                    .overlay {
+                        Image(systemName: "checkmark")
+                            .font(.title)
+                    }
+                    .frame(width: 60, height: 60)
+                    .onTapGesture {
+                        onCheckmarkButtonPressed?()
+                    }
+            }
+            
+            Text("Hide and Report")
+                .font(.headline)
+                .foregroundStyle(.primary.opacity(0.7))
+                .padding(8)
+                .background(.blue.opacity(0.001))
+                .onTapGesture {
+                    onHideAndReportButtonPressed?()
+                }
+            
+        }
+    }
+    
 }

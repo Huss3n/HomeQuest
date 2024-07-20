@@ -38,4 +38,11 @@ struct MockData {
             "pic9"
         ]
     )
+    
+    static var userData: UserModel = UserModel(
+        fullName: "Hussein Aisak",
+        email: "hussein@test.com",
+        phoneNumber: "0729683600",
+        profilePhoto: "pic1"
+    )
 }
