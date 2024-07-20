@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PropertyCardView: View {
-    var property = MockData.propertyInfo
+    var property: PropertyModel = MockData.propertyInfo
     var user = MockData.userData
     
     var onCommentButtonPressed: (() -> Void)? = nil
@@ -60,21 +60,8 @@ struct PropertyCardView: View {
                 }
             }
             .scrollIndicators(.hidden)
-            .background(
-                LinearGradient(
-                    colors: [
-                        .blue.opacity(
-                            0
-                        ),
-                        .red.opacity(
-                            0.1
-                        ),
-                        .green.opacity(0.1)
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-            )
+            .background(.white)
+            .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensure full coverage
             .overlay (
                 superLike
                     .padding(14)
@@ -105,7 +92,7 @@ extension PropertyCardView {
     // MARK: Header
     private var headerCell: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(property.propertyImages.randomElement()!)
+            Image(property.propertyImages[1])
                 .resizable()
             
             VStack(alignment: .leading, spacing: 12) {
@@ -228,7 +215,7 @@ extension PropertyCardView {
     
     // MARK: Property Photos
     private var propertyPhotos: some View {
-        VStack(alignment:.leading, spacing: 12) {
+        VStack(alignment:.leading, spacing: 2) {
             Text("Photos")
                 .font(.headline)
             
