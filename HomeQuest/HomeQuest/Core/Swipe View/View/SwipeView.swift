@@ -15,6 +15,7 @@ struct SwipeView: View {
     @State private var selectedIndex: Int = 0
     @State private var cardOffsets: [Int: Bool] = [:] // UserId : Direction is Right == TRUE
     @State private var currentSwipeOffset: CGFloat = 0
+    @State private var commentButonPressed: Bool = false
     
     var body: some View {
         ZStack {
@@ -53,6 +54,19 @@ struct SwipeView: View {
                 .animation(.smooth, value: cardOffsets)
             }
             .padding(4)
+            .sheet(isPresented: $commentButonPressed, content: {
+                ScrollView {
+                    VStack(alignment: .leading,spacing: 12) {
+                        Text("Realtor reveiws")
+                            .font(.headline)
+                        RealtorPreview()
+                    }
+                    .padding(.top, 12)
+                    .padding(.horizontal, 12)
+                    .presentationDetents([.medium])
+                }
+                .scrollIndicators(.hidden)
+            })
         }
     }
     
@@ -84,6 +98,9 @@ struct SwipeView: View {
     private func propertyProfileCell(property: PropertyModel, index: Int) -> some View {
         PropertyCardView(
             property: property,
+            onCommentButtonPressed: {
+                commentButonPressed.toggle()
+            },
             onXmarkButtonPressed: {
                 propertyDidSelect(index: index, isLike: false)
             },
