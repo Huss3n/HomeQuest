@@ -85,10 +85,8 @@ struct PropertyDetail: View {
                     } else if selectedTab == .gallery {
                         gallery
                     } else {
-                        ForEach(0..<10) { _ in
-                            RealtorPreview()
-                                .padding(.horizontal)
-                        }
+                        RealtorPreview()
+                            .padding(.horizontal)
                     }
                     
                     
