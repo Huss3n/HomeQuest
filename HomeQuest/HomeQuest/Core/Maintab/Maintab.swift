@@ -16,19 +16,19 @@ struct Maintab: View {
                     Image(systemName: "house")
                 }
             
-            MapView()
-                .tabItem {
-                    Image(systemName: "location.circle")
-                }
-            
             SwipeView()
                 .tabItem {
                     Image(systemName: "heart")
                 }
             
+            MapView()
+                .tabItem {
+                    Image(systemName: "location.circle")
+                }
+            
             Text("My Profile")
                 .tabItem {
-                    Image(systemName: "person")
+                    Image(systemName: "bookmark")
                 }
         }
     }
