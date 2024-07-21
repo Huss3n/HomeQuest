@@ -7,6 +7,14 @@
 
 import Foundation
 
+struct PropertyMockDataModel: Identifiable {
+    let id = UUID()
+    let imageName: String
+    let propertyName: String
+    let propertyAmount: String
+    let propertyLocation: String
+}
+
 struct MockData {
     static var propertyInfo: PropertyModel = PropertyModel(
         properyName: "Woodvale Grove",
@@ -45,4 +53,11 @@ struct MockData {
         phoneNumber: "0729683600",
         profilePhoto: "pic1"
     )
+    
+    static var bookmarkedProperties: [PropertyMockDataModel] = [
+        PropertyMockDataModel(imageName: "pic1", propertyName: "Woodvale Groove", propertyAmount: "50,000", propertyLocation: "Rainy road, Kileleshwa"),
+        PropertyMockDataModel(imageName: "pic2", propertyName: "Greenwood Estate", propertyAmount: "70,000", propertyLocation: "Sea bird, Lavington"),
+        PropertyMockDataModel(imageName: "pic3", propertyName: "Sunset Villa", propertyAmount: "80,000", propertyLocation: "707 Poplar St, Hurligham"),
+    ]
+    
 }
