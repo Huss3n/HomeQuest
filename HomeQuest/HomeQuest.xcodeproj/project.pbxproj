@@ -15,6 +15,7 @@
 		774854282C49485400655C6B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774854272C49485400655C6B /* ImageLoader.swift */; };
 		7748542B2C494BC100655C6B /* PropertyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748542A2C494BC100655C6B /* PropertyModel.swift */; };
 		7748542D2C49502600655C6B /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748542C2C49502600655C6B /* MockData.swift */; };
+		77571A7E2C4E6988006DC2DA /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77571A7D2C4E6988006DC2DA /* SDWebImageSwiftUI */; };
 		77693E872C450BCC0087D792 /* HomeQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E862C450BCC0087D792 /* HomeQuestApp.swift */; };
 		77693E892C450BCC0087D792 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693E882C450BCC0087D792 /* ContentView.swift */; };
 		77693E8B2C450BCE0087D792 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77693E8A2C450BCE0087D792 /* Assets.xcassets */; };
@@ -36,7 +37,6 @@
 		77693EC82C4559C60087D792 /* HouseRowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EC72C4559C60087D792 /* HouseRowDetail.swift */; };
 		779A0AAC2C4D1D540030111E /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAB2C4D1D540030111E /* BookmarkView.swift */; };
 		779A0AB02C4D33B10030111E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAF2C4D33B10030111E /* ProfileView.swift */; };
-		779A0AB32C4E3BFD0030111E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */; };
 		779A0AB52C4E4A160030111E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AB42C4E4A160030111E /* ChatView.swift */; };
 		77CA54BD2C4AA93400BAF74E /* PropertyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */; };
 		77CA54BF2C4AB13E00BAF74E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BE2C4AB13E00BAF74E /* UserModel.swift */; };
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				779A0AB32C4E3BFD0030111E /* SDWebImageSwiftUI in Frameworks */,
+				77571A7E2C4E6988006DC2DA /* SDWebImageSwiftUI in Frameworks */,
 				77CA54C62C4BBE2100BAF74E /* SwiftfulUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,11 +195,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		77571A7A2C4E68A8006DC2DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		77693E7A2C450BCC0087D792 = {
 			isa = PBXGroup;
 			children = (
 				77693E852C450BCC0087D792 /* HomeQuest */,
 				77693E842C450BCC0087D792 /* Products */,
+				77571A7A2C4E68A8006DC2DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -501,7 +509,7 @@
 			name = HomeQuest;
 			packageProductDependencies = (
 				77CA54C52C4BBE2100BAF74E /* SwiftfulUI */,
-				779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */,
+				77571A7D2C4E6988006DC2DA /* SDWebImageSwiftUI */,
 			);
 			productName = HomeQuest;
 			productReference = 77693E832C450BCC0087D792 /* HomeQuest.app */;
@@ -738,7 +746,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeQuest/Preview Content\"";
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
@@ -767,7 +775,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeQuest/Preview Content\"";
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
@@ -833,9 +841,8 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */ = {
+		77571A7D2C4E6988006DC2DA /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 779A0AB12C4E3BFD0030111E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
 		77CA54C52C4BBE2100BAF74E /* SwiftfulUI */ = {
