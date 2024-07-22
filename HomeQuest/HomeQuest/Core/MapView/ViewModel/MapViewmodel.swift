@@ -13,7 +13,7 @@ final class MapViewmodel: ObservableObject {
     @Published var propertyLocations: [PropertyLocations] = []
     @Published var mapCameraPosition: MapCameraPosition = .automatic
     
-    @Published var startPosition =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -1.2831838144889616, longitude: 36.79028931212648), span: MKCoordinateSpan(latitudeDelta: 0.0125, longitudeDelta: 0.0125))
+    @Published var startPosition =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -1.2831838144889616, longitude: 36.79028931212648), span: MKCoordinateSpan(latitudeDelta: 0.00125, longitudeDelta: 0.00125))
     
     init() {
         addProperties()

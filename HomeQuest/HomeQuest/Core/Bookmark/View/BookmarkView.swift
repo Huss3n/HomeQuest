@@ -11,39 +11,40 @@ import SwiftUI
 
 
 struct BookmarkView: View {
-    var apiKey = "VMKmPkbFvktEZYnsT6_xy1F0ZStjzTadndsccvvs1wnayKCWMI"
-    var secretKey = "mlPI3bsfdvP3AAPYVcQfj1dfdf6BsBqfu3o8hnNcoR3Cc74vf4"
-    
+    //    var apiKey = "VMKmPkbFvktEZYnsT6_xy1F0ZStjzTadndsccvvs1wnayKCWMI" // REVOKED
+    //    var secretKey = "mlPI3bsfdvP3AAPYVcQfj1dfdf6BsBqfu3o8hnNcoR3Cc74vf4" // REVOKED
     @State private var bookmarkedProperties: [PropertyMockDataModel] = MockData.bookmarkedProperties
     
     var body: some View {
         NavigationStack {
             ZStack {
-                if bookmarkedProperties.isEmpty {
-                    ContentUnavailableView("No bookmarked properties!", systemImage: "bookmark", description: Text("Your bookmarked properties will appear here"))
-                } else {
-                    List {
-                        ForEach(bookmarkedProperties) { property in
-                            
-                            NavigationLink {
-                                PropertyDetail()
-                                    .navigationBarBackButtonHidden()
-                            } label: {
-                                bookmarkComponent(imageName: property.imageName, propetyName: property.propertyName, properyAmount: property.propertyAmount, propertyLocation: property.propertyLocation)
+                VStack {
+                    if bookmarkedProperties.isEmpty {
+                        ContentUnavailableView("No bookmarked properties!", systemImage: "bookmark", description: Text("Your bookmarked properties will appear here"))
+                    } else {
+                        List {
+                            ForEach(bookmarkedProperties) { property in
+                                
+                                NavigationLink {
+                                    PropertyDetail()
+                                        .navigationBarBackButtonHidden()
+                                } label: {
+                                    bookmarkComponent(imageName: property.imageName, propetyName: property.propertyName, properyAmount: property.propertyAmount, propertyLocation: property.propertyLocation)
+                                }
+                            }
+                            .onDelete(perform: delete)
+                        }
+                        .toolbar {
+                            ToolbarItem {
+                                EditButton()
                             }
                         }
-                        .onDelete(perform: delete)
+                        .listStyle(.plain)
                     }
-                    .toolbar {
-                        ToolbarItem {
-                            EditButton()
-                        }
-                    }
-                    .listStyle(.plain)
                 }
+                .navigationTitle("Bookmarks")
+                
             }
-            .navigationTitle("Bookmarks")
-   
         }
     }
     

@@ -58,7 +58,7 @@ struct PropertyDetail: View {
     let position = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: -1.2767338, longitude: 36.7879011),
-            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+            span: MKCoordinateSpan(latitudeDelta: 0.00125, longitudeDelta: 0.00125)
         )
     )
     
@@ -197,6 +197,7 @@ extension PropertyDetail {
             HStack {
                 Image(systemName: "arrow.left")
                     .padding(12)
+                    .foregroundStyle(.black)
                     .background(.white)
                     .clipShape(Circle())
                     .onTapGesture {
@@ -206,11 +207,13 @@ extension PropertyDetail {
                 Spacer()
                 
                 Image(systemName: "heart")
+                    .foregroundStyle(.black)
                     .padding(12)
                     .background(.white)
                     .clipShape(Circle())
                 
                 Image(systemName: "square.and.arrow.up")
+                    .foregroundStyle(.black)
                     .padding(12)
                     .background(.white)
                     .clipShape(Circle())

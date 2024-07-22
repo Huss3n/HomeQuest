@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PropertyCardView: View {
+    @Environment(\.colorScheme) var colorScheme
     var property: PropertyModel = MockData.propertyInfo
     var user = MockData.userData
     
@@ -60,7 +61,7 @@ struct PropertyCardView: View {
                 }
             }
             .scrollIndicators(.hidden)
-            .background(.white)
+            .background(colorScheme == .light ? .white : .black)
             .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensure full coverage
             .overlay (
                 superLike

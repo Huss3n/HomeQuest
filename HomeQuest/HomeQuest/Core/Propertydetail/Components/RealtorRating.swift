@@ -74,9 +74,7 @@ final class RealtorRatingViewmodel: ObservableObject {
 }
 
 
-struct RealtorRating: View {
-    
-    
+struct RealtorRating: View {    
     var realtorReviews: RealtorReviewModel
     
     var body: some View {

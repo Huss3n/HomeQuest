@@ -19,8 +19,8 @@ struct PropertyLocation: View {
         var newRegion = MKCoordinateRegion()
         newRegion.center.latitude = -1.2767338
         newRegion.center.longitude = 36.7879011
-        newRegion.span.latitudeDelta = 0.2
-        newRegion.span.longitudeDelta = 0.2
+        newRegion.span.latitudeDelta = 0.125
+        newRegion.span.longitudeDelta = 0.125
         return newRegion
     }()
     
