@@ -37,6 +37,7 @@
 		779A0AAC2C4D1D540030111E /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAB2C4D1D540030111E /* BookmarkView.swift */; };
 		779A0AB02C4D33B10030111E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAF2C4D33B10030111E /* ProfileView.swift */; };
 		779A0AB32C4E3BFD0030111E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */; };
+		779A0AB52C4E4A160030111E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AB42C4E4A160030111E /* ChatView.swift */; };
 		77CA54BD2C4AA93400BAF74E /* PropertyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */; };
 		77CA54BF2C4AB13E00BAF74E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BE2C4AB13E00BAF74E /* UserModel.swift */; };
 		77CA54C12C4ABBD000BAF74E /* PropertyCommentCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */; };
@@ -89,6 +90,7 @@
 		77693EC72C4559C60087D792 /* HouseRowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRowDetail.swift; sourceTree = "<group>"; };
 		779A0AAB2C4D1D540030111E /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		779A0AAF2C4D33B10030111E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		779A0AB42C4E4A160030111E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCardView.swift; sourceTree = "<group>"; };
 		77CA54BE2C4AB13E00BAF74E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCommentCapsule.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				774854272C49485400655C6B /* ImageLoader.swift */,
 				7748542C2C49502600655C6B /* MockData.swift */,
 				77CA54C22C4AD48B00BAF74E /* RealtorView.swift */,
+				779A0AB42C4E4A160030111E /* ChatView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			files = (
 				77CA54C32C4AD48B00BAF74E /* RealtorView.swift in Sources */,
 				77F92FB22C46FE4400B212DC /* ReviewSummary.swift in Sources */,
+				779A0AB52C4E4A160030111E /* ChatView.swift in Sources */,
 				77F92FA42C46A91A00B212DC /* RealtorRating.swift in Sources */,
 				77693EBB2C45465E0087D792 /* Maintab.swift in Sources */,
 				7748541D2C490B4000655C6B /* PropertyLocations.swift in Sources */,
