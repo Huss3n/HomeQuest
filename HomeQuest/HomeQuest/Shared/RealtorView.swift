@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RealtorView: View {
     var user: UserModel
+    var messageWasClicked: (() -> Void)?
+    var phoneWasClicked: (() -> Void)?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
@@ -33,9 +35,16 @@ struct RealtorView: View {
                 Spacer()
                 
                 HStack(spacing: 30) {
-                    Image("email")
-                    Image("phone")
+                    Image(systemName: "message.fill")
+                        .onTapGesture {
+                            messageWasClicked?()
+                        }
+                    Image(systemName: "phone.fill")
+                        .onTapGesture {
+                            phoneWasClicked?()
+                        }
                 }
+                .font(.title2)
             }
         }
     }

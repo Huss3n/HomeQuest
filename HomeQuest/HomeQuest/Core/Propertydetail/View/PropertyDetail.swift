@@ -48,6 +48,11 @@ struct PropertyDetail: View {
     @State private var tourButtonPressed: Bool = false
     @State private var realEstateButtonPressed: Bool = false
     
+    @State private var messageWasClicked: Bool = false
+    @State private var phoneWasClicked: Bool = false
+    
+    let realtorPhoneNumber = "0729 683 600"
+    
     var height = UIScreen.main.bounds.height
     
     let position = MapCameraPosition.region(
@@ -81,7 +86,17 @@ struct PropertyDetail: View {
                     activeTabSelection
                     
                     if selectedTab == .description {
-                        description
+                        propertyStats
+                        RealtorView(user: MockData.userData, messageWasClicked: { messageWasClicked.toggle() }, phoneWasClicked: {
+                            if let url = URL(string: "tel://\(realtorPhoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
+                        })
+                        .padding(.horizontal)
+                        
+                        facilities
+                        propertyLocation
+                        
                     } else if selectedTab == .gallery {
                         gallery
                     } else {
@@ -101,6 +116,9 @@ struct PropertyDetail: View {
             }
             .ignoresSafeArea()
             .toolbar(.hidden, for: .tabBar) // MARK: Book now Sheet
+            .sheet(isPresented: $messageWasClicked, content: {
+                ChatView()
+            })
             .sheet(isPresented: $bookingButtonPressed, content: {
                 BookNowPopUp(bookingOption: $bookingOption) {
                     if bookingOption == .tour {
@@ -153,16 +171,6 @@ struct PropertyDetail: View {
 }
 
 extension PropertyDetail {
-    
-    private var description: some View {
-        Group {
-            propertyStats
-            RealtorView(user: MockData.userData)
-            facilities
-            propertyLocation
-        }
-    }
-    
     private var gallery: some View {
         LazyVGrid(columns: columns, content: {
             ForEach(images, id: \.self) { image in
