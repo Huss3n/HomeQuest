@@ -15,6 +15,10 @@ struct ProfileView: View {
     let url: URL = URL(string: "https://t.ly/4-8Vt")!
     
     
+    // Password fields
+    @State private var changePassword: Bool = false
+    
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -78,11 +82,10 @@ struct ProfileView: View {
                         listItems(imageName: "heart", listName: "Liked Properties")
                     }
                     
-                    NavigationLink {
-                        
-                    } label: {
-                        listItems(imageName: "key", listName: "Change password")
-                    }
+                    listItems(imageName: "key", listName: "Change password")
+                        .onTapGesture {
+                            changePassword.toggle()
+                        }
                     
                     NavigationLink {
                         
@@ -151,6 +154,10 @@ struct ProfileView: View {
             .navigationTitle("Profile")
             .navigationBarTitleDisplayMode(.inline)
             .animation(.smooth, value: activityStatus)
+            .sheet(isPresented: $changePassword, content: {
+                ChangePasswordView()
+                    .presentationDetents([.medium])
+            })
         }
     }
     
@@ -165,4 +172,90 @@ struct ProfileView: View {
 
 #Preview {
     ProfileView()
+}
+
+
+struct ChangePasswordView: View {
+    @Environment(\.dismiss) var dismiss
+    @State private var currentPassword: String = ""
+    @State private var newPassword: String = ""
+    @State private var confirmNewPassword: String = ""
+    @FocusState private var currentPasswordIsFocused: Bool
+    @FocusState private var newPasswordIsFocused: Bool
+    @FocusState private var confirmPasswordIsFocused: Bool
+    
+    // password errors
+    @State private var errorMessage: String = ""
+    @State private var wrongPassword: Bool = false
+    
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 20) {
+                SecureField("Current Password", text: $currentPassword)
+                    .textContentType(.password)
+                    .padding(10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.black, lineWidth: 1.0)
+                    }
+                    .focused($currentPasswordIsFocused)
+                    .onSubmit {
+                        newPasswordIsFocused = true
+                    }
+                
+                SecureField("New Password", text: $newPassword)
+                    .textContentType(.password)
+                    .padding(10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color.black, lineWidth: 1.0)
+                    }
+                    .focused($newPasswordIsFocused)
+                    .onSubmit {
+                        confirmPasswordIsFocused = true
+                    }
+                
+                SecureField("Confirm New Password", text: $confirmNewPassword)
+                    .textContentType(.password)
+                    .padding(10)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(Color.black, lineWidth: 1.0)
+                    }
+                    .focused($confirmPasswordIsFocused)
+                
+                Text(errorMessage)
+                    .font(.subheadline)
+                    .foregroundStyle(wrongPassword ? .red : .green)
+                
+                Text("Done")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .padding()
+                    .padding(.horizontal, 30)
+                    .background(.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .onTapGesture {
+                        if currentPassword != "qwerty" {
+                            wrongPassword.toggle()
+                            errorMessage = "Current Pssword is wrong"
+                        }else {
+                            wrongPassword.toggle()
+                            errorMessage = "Password update successful"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                dismiss()
+                            }
+                        }
+                    }
+                
+                Spacer()
+            }
+            .padding(.horizontal)
+            .navigationTitle("Change Password")
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                currentPasswordIsFocused = true
+            }
+        }
+    }
 }
