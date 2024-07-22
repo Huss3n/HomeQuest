@@ -29,12 +29,9 @@ struct HomeView: View {
                         propertiesNearYou
                     }
                     .scrollIndicators(.hidden)
-                    .confirmationDialog("Logout", isPresented: $showProfile) {
-                        Button("Logout", role: .destructive, action: {
-                            UserDefaults.standard.setValue(true, forKey: "userNotSignedIn")
-                        })
-                    }
-                    
+                    .fullScreenCover(isPresented: $showProfile, content: {
+                        ProfileView()
+                    })
                 }
                 .padding(.horizontal)
             }
