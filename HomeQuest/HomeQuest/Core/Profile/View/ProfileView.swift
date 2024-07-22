@@ -53,20 +53,27 @@ struct ProfileView: View {
                 
                 List {
                     NavigationLink {
-                        
+                        RecentChats()
+                    } label: {
+                        listItems(imageName: "message", listName: "Chats")
+                    }
+
+                    
+                    NavigationLink {
+                        Text("Edit Profile")
                     } label: {
                         listItems(imageName: "person", listName: "Edit Profile")
                         
                     }
                     
                     NavigationLink {
-                        
+                        Text("My Bookings")
                     } label: {
                         listItems(imageName: "house", listName: "My Bookings")
                     }
                     
                     NavigationLink {
-                        
+                        LikedProperties()
                     } label: {
                         listItems(imageName: "heart", listName: "Liked Properties")
                     }

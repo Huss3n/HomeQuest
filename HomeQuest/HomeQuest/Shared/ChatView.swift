@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-enum MessageOwner {
+enum MessageOwner: String, Codable {
     case sender
     case receiver
 }
 
-struct Message: Identifiable {
+struct Message: Identifiable, Codable {
     let id = UUID()
     let text: String
     let owner: MessageOwner
@@ -21,13 +21,14 @@ struct Message: Identifiable {
 struct ChatView: View {
     @Environment(\.dismiss) var dismiss
     @FocusState private var messageFieldIsFocused: Bool
-    @State private var messages: [Message] = []
+    @AppStorage("messagesData") private var messagesData: Data = Data()
     @State private var messageText: String = ""
+    @State private var clearMessages: Bool = false
     let realtorPhoneNumber = "0729 683 600"
     
+    @State private var messages: [Message] = []
     @State private var showPhoneAlert: Bool = false
-    
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -87,7 +88,14 @@ struct ChatView: View {
             }
             .onAppear {
                 messageFieldIsFocused = true
+                loadMessages()
             }
+            .alert(Text("Delete chats!"), isPresented: $clearMessages, actions: {
+                Button("Cancel", role: .cancel, action: {})
+                Button("Clear", role: .destructive, action: {deleteMessages()})
+            }, message: {
+                Text("You are about to clear your chats with John Doe, this action is irreversable")
+            })
             .padding(.horizontal, 10)
             .navigationTitle("Messages")
             .navigationBarTitleDisplayMode(.inline)
@@ -99,13 +107,23 @@ struct ChatView: View {
                         }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Image(systemName: "phone.fill")
-                        .foregroundStyle(.blue)
-                        .onTapGesture {
-                            if let url = URL(string: "tel://\(realtorPhoneNumber)"), UIApplication.shared.canOpenURL(url) {
-                                UIApplication.shared.open(url)
+                    
+                    HStack(spacing: 24) {
+                        Image(systemName: "trash")
+                            .foregroundStyle(.red)
+                            .onTapGesture {
+                                clearMessages.toggle()
                             }
-                        }
+                        
+                        Image(systemName: "phone.fill")
+                            .foregroundStyle(.blue)
+                            .onTapGesture {
+                                if let url = URL(string: "tel://\(realtorPhoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                    }
+                    
                 }
             }
         }
@@ -116,12 +134,37 @@ struct ChatView: View {
         messages.append(newMessage)
         messageText = ""
         messageFieldIsFocused = false
+        saveMessages()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             let replyMessage = Message(text: "Thank you for your message. I have received it and will get back to you as soon as possible.", owner: .receiver)
             withAnimation(.smooth) {
                 messages.append(replyMessage)
+                saveMessages()
             }
         }
+    }
+    
+    private func loadMessages() {
+        if let savedMessages = try? JSONDecoder().decode([Message].self, from: messagesData) {
+            messages = savedMessages
+        }
+    }
+    
+    private func saveMessages() {
+        if let encodedMessages = try? JSONEncoder().encode(messages) {
+            messagesData = encodedMessages
+        }
+    }
+    
+    private func deleteMessages() {
+        // Clear the messages array
+        messages = []
+
+        // Encode the empty messages array
+        if let encodedMessages = try? JSONEncoder().encode(messages) {
+            messagesData = encodedMessages
+        }
+        
     }
     
     private func messageView(message: Message) -> some View {
@@ -153,4 +196,5 @@ struct ChatView: View {
 #Preview {
     ChatView()
 }
+
 
