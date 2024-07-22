@@ -35,6 +35,8 @@
 		77693EC62C4554C50087D792 /* HouseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EC52C4554C50087D792 /* HouseDetail.swift */; };
 		77693EC82C4559C60087D792 /* HouseRowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77693EC72C4559C60087D792 /* HouseRowDetail.swift */; };
 		779A0AAC2C4D1D540030111E /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAB2C4D1D540030111E /* BookmarkView.swift */; };
+		779A0AB02C4D33B10030111E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAF2C4D33B10030111E /* ProfileView.swift */; };
+		779A0AB32C4E3BFD0030111E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */; };
 		77CA54BD2C4AA93400BAF74E /* PropertyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */; };
 		77CA54BF2C4AB13E00BAF74E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BE2C4AB13E00BAF74E /* UserModel.swift */; };
 		77CA54C12C4ABBD000BAF74E /* PropertyCommentCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */; };
@@ -86,6 +88,7 @@
 		77693EC52C4554C50087D792 /* HouseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetail.swift; sourceTree = "<group>"; };
 		77693EC72C4559C60087D792 /* HouseRowDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseRowDetail.swift; sourceTree = "<group>"; };
 		779A0AAB2C4D1D540030111E /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		779A0AAF2C4D33B10030111E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCardView.swift; sourceTree = "<group>"; };
 		77CA54BE2C4AB13E00BAF74E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCommentCapsule.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779A0AB32C4E3BFD0030111E /* SDWebImageSwiftUI in Frameworks */,
 				77CA54C62C4BBE2100BAF74E /* SwiftfulUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +246,7 @@
 		77693E952C450D930087D792 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				779A0AAD2C4D33980030111E /* Profile */,
 				779A0AA92C4D1D460030111E /* Bookmark */,
 				774854202C493E0400655C6B /* Swipe View */,
 				774853F32C47B65E00655C6B /* MapView */,
@@ -407,6 +412,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		779A0AAD2C4D33980030111E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				779A0AAE2C4D339B0030111E /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		779A0AAE2C4D339B0030111E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				779A0AAF2C4D33B10030111E /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		77CA54C72C4BC20A00BAF74E /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,6 +498,7 @@
 			name = HomeQuest;
 			packageProductDependencies = (
 				77CA54C52C4BBE2100BAF74E /* SwiftfulUI */,
+				779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */,
 			);
 			productName = HomeQuest;
 			productReference = 77693E832C450BCC0087D792 /* HomeQuest.app */;
@@ -508,6 +530,7 @@
 			mainGroup = 77693E7A2C450BCC0087D792;
 			packageReferences = (
 				77CA54C42C4BBE2100BAF74E /* XCRemoteSwiftPackageReference "SwiftfulUI" */,
+				779A0AB12C4E3BFD0030111E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 77693E842C450BCC0087D792 /* Products */;
 			projectDirPath = "";
@@ -572,6 +595,7 @@
 				7748541F2C490BBC00655C6B /* MapViewmodel.swift in Sources */,
 				77693EA52C452D2A0087D792 /* Route.swift in Sources */,
 				77F92FB92C470CB300B212DC /* AddPhoneNumber.swift in Sources */,
+				779A0AB02C4D33B10030111E /* ProfileView.swift in Sources */,
 				77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */,
 				77CA54BD2C4AA93400BAF74E /* PropertyCardView.swift in Sources */,
 				77693E872C450BCC0087D792 /* HomeQuestApp.swift in Sources */,
@@ -786,6 +810,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		779A0AB12C4E3BFD0030111E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		77CA54C42C4BBE2100BAF74E /* XCRemoteSwiftPackageReference "SwiftfulUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftfulThinking/SwiftfulUI.git";
@@ -797,6 +829,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		779A0AB22C4E3BFD0030111E /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 779A0AB12C4E3BFD0030111E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
 		77CA54C52C4BBE2100BAF74E /* SwiftfulUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77CA54C42C4BBE2100BAF74E /* XCRemoteSwiftPackageReference "SwiftfulUI" */;
