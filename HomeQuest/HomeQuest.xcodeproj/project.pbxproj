@@ -40,6 +40,7 @@
 		779A0AB52C4E4A160030111E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AB42C4E4A160030111E /* ChatView.swift */; };
 		77B18C572C4E75B900635316 /* LikedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18C562C4E75B900635316 /* LikedProperties.swift */; };
 		77B18C592C4E7F1400635316 /* RecentChats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18C582C4E7F1400635316 /* RecentChats.swift */; };
+		77B18C5B2C4E84A700635316 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77B18C5A2C4E84A700635316 /* SDWebImageSwiftUI */; };
 		77CA54BD2C4AA93400BAF74E /* PropertyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */; };
 		77CA54BF2C4AB13E00BAF74E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54BE2C4AB13E00BAF74E /* UserModel.swift */; };
 		77CA54C12C4ABBD000BAF74E /* PropertyCommentCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CA54C02C4ABBD000BAF74E /* PropertyCommentCapsule.swift */; };
@@ -120,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77B18C5B2C4E84A700635316 /* SDWebImageSwiftUI in Frameworks */,
 				77571A7E2C4E6988006DC2DA /* SDWebImageSwiftUI in Frameworks */,
 				77CA54C62C4BBE2100BAF74E /* SwiftfulUI in Frameworks */,
 			);
@@ -516,6 +518,7 @@
 			packageProductDependencies = (
 				77CA54C52C4BBE2100BAF74E /* SwiftfulUI */,
 				77571A7D2C4E6988006DC2DA /* SDWebImageSwiftUI */,
+				77B18C5A2C4E84A700635316 /* SDWebImageSwiftUI */,
 			);
 			productName = HomeQuest;
 			productReference = 77693E832C450BCC0087D792 /* HomeQuest.app */;
@@ -754,7 +757,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeQuest/Preview Content\"";
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
@@ -768,7 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -783,7 +786,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeQuest/Preview Content\"";
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
@@ -797,7 +800,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -850,6 +853,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		77571A7D2C4E6988006DC2DA /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SDWebImageSwiftUI;
+		};
+		77B18C5A2C4E84A700635316 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SDWebImageSwiftUI;
 		};
