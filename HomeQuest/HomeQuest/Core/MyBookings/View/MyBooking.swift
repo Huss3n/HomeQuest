@@ -58,7 +58,7 @@ struct MyBooking: View {
                 BookTour(tourButtonPressed: $booktour)
             })
             .sheet(isPresented: $rateExpirienceButtonPressed, content: {
-                Text("Rate your expirience")
+                RealtorRevire()
             })
             .sheet(isPresented: $rebookButtonPressed, content: {
                 BookTour(tourButtonPressed: $booktour)
