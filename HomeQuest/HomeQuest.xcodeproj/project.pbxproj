@@ -39,8 +39,8 @@
 		779A0AAC2C4D1D540030111E /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAB2C4D1D540030111E /* BookmarkView.swift */; };
 		779A0AB02C4D33B10030111E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AAF2C4D33B10030111E /* ProfileView.swift */; };
 		779A0AB52C4E4A160030111E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AB42C4E4A160030111E /* ChatView.swift */; };
-		77AFA5852C4FE1940043CA6B /* RealtorRevire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFA5842C4FE1940043CA6B /* RealtorRevire.swift */; };
 		77AFA5812C4FC5A90043CA6B /* CancelBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFA5802C4FC5A90043CA6B /* CancelBooking.swift */; };
+		77AFA5852C4FE1940043CA6B /* RealtorRevire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFA5842C4FE1940043CA6B /* RealtorRevire.swift */; };
 		77B18C572C4E75B900635316 /* LikedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18C562C4E75B900635316 /* LikedProperties.swift */; };
 		77B18C592C4E7F1400635316 /* RecentChats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18C582C4E7F1400635316 /* RecentChats.swift */; };
 		77B18C5B2C4E84A700635316 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77B18C5A2C4E84A700635316 /* SDWebImageSwiftUI */; };
@@ -98,8 +98,8 @@
 		779A0AAB2C4D1D540030111E /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
 		779A0AAF2C4D33B10030111E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		779A0AB42C4E4A160030111E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		77AFA5842C4FE1940043CA6B /* RealtorRevire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtorRevire.swift; sourceTree = "<group>"; };
 		77AFA5802C4FC5A90043CA6B /* CancelBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBooking.swift; sourceTree = "<group>"; };
+		77AFA5842C4FE1940043CA6B /* RealtorRevire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtorRevire.swift; sourceTree = "<group>"; };
 		77B18C562C4E75B900635316 /* LikedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedProperties.swift; sourceTree = "<group>"; };
 		77B18C582C4E7F1400635316 /* RecentChats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChats.swift; sourceTree = "<group>"; };
 		77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCardView.swift; sourceTree = "<group>"; };
@@ -801,7 +801,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8;
+				CURRENT_PROJECT_VERSION = 1.9;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeQuest/Preview Content\"";
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
@@ -815,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -830,7 +830,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8;
+				CURRENT_PROJECT_VERSION = 1.9;
 				DEVELOPMENT_ASSET_PATHS = "\"HomeQuest/Preview Content\"";
 				DEVELOPMENT_TEAM = 648U26QNYT;
 				ENABLE_PREVIEWS = YES;
@@ -844,7 +844,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HomeQuest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
