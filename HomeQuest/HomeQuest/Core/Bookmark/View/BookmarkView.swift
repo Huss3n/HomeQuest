@@ -17,33 +17,37 @@ struct BookmarkView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                VStack {
-                    if bookmarkedProperties.isEmpty {
-                        ContentUnavailableView("No bookmarked properties!", systemImage: "bookmark", description: Text("Your bookmarked properties will appear here"))
-                    } else {
-                        List {
-                            ForEach(bookmarkedProperties) { property in
-                                
-                                NavigationLink {
-                                    PropertyDetail()
-                                        .navigationBarBackButtonHidden()
-                                } label: {
-                                    bookmarkComponent(imageName: property.imageName, propetyName: property.propertyName, properyAmount: property.propertyAmount, propertyLocation: property.propertyLocation)
-                                }
-                            }
-                            .onDelete(perform: delete)
-                        }
-                        .toolbar {
-                            ToolbarItem {
-                                EditButton()
-                            }
-                        }
-                        .listStyle(.plain)
-                    }
+            VStack {
+                HStack {
+                    Text("My Bookmarks")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 12)
+                    
+                    Spacer()
+                    
+                    EditButton()
                 }
-                .navigationTitle("Bookmarks")
+                .padding(.horizontal)
                 
+                if bookmarkedProperties.isEmpty {
+                    ContentUnavailableView("No bookmarked properties!", systemImage: "bookmark", description: Text("Your bookmarked properties will appear here"))
+                } else {
+                    List {
+                        ForEach(bookmarkedProperties) { property in
+                            
+                            NavigationLink {
+                                PropertyDetail()
+                                    .navigationBarBackButtonHidden()
+                            } label: {
+                                bookmarkComponent(imageName: property.imageName, propetyName: property.propertyName, properyAmount: property.propertyAmount, propertyLocation: property.propertyLocation)
+                            }
+                        }
+                        .onDelete(perform: delete)
+                    }
+                    .listStyle(.plain)
+                }
             }
         }
     }
@@ -63,8 +67,8 @@ extension BookmarkView {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 80)
-                .cornerRadius(20)
+                .frame(height: 60)
+                .cornerRadius(10)
             VStack(alignment: .leading, spacing: 6) {
                 Text(propetyName)
                     .font(.headline)
