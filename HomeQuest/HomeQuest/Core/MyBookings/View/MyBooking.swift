@@ -52,7 +52,7 @@ struct MyBooking: View {
             .navigationTitle("My Bookings")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $cancelButtonPressed, content: {
-                Text("Cancel button")
+                CancelBooking()
             })
             .sheet(isPresented: $rescheduleButtonPressed, content: {
                 BookTour(tourButtonPressed: $booktour)
