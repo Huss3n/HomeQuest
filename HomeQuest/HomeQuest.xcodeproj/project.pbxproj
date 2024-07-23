@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77303D042C4FA2E7008F665A /* MyBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77303D032C4FA2E7008F665A /* MyBooking.swift */; };
 		774853F72C47B67700655C6B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774853F62C47B67700655C6B /* MapView.swift */; };
 		7748541D2C490B4000655C6B /* PropertyLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748541C2C490B4000655C6B /* PropertyLocations.swift */; };
 		7748541F2C490BBC00655C6B /* MapViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748541E2C490BBC00655C6B /* MapViewmodel.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77303D032C4FA2E7008F665A /* MyBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooking.swift; sourceTree = "<group>"; };
 		774853F62C47B67700655C6B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		7748541C2C490B4000655C6B /* PropertyLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLocations.swift; sourceTree = "<group>"; };
 		7748541E2C490BBC00655C6B /* MapViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewmodel.swift; sourceTree = "<group>"; };
@@ -130,6 +132,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77303D012C4FA2D2008F665A /* MyBookings */ = {
+			isa = PBXGroup;
+			children = (
+				77303D022C4FA2DB008F665A /* View */,
+			);
+			path = MyBookings;
+			sourceTree = "<group>";
+		};
+		77303D022C4FA2DB008F665A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77303D032C4FA2E7008F665A /* MyBooking.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		774853F32C47B65E00655C6B /* MapView */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +280,7 @@
 		77693E952C450D930087D792 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				77303D012C4FA2D2008F665A /* MyBookings */,
 				779A0AAD2C4D33980030111E /* Profile */,
 				779A0AA92C4D1D460030111E /* Bookmark */,
 				774854202C493E0400655C6B /* Swipe View */,
@@ -579,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77CA54C32C4AD48B00BAF74E /* RealtorView.swift in Sources */,
+				77303D042C4FA2E7008F665A /* MyBooking.swift in Sources */,
 				77F92FB22C46FE4400B212DC /* ReviewSummary.swift in Sources */,
 				779A0AB52C4E4A160030111E /* ChatView.swift in Sources */,
 				77F92FA42C46A91A00B212DC /* RealtorRating.swift in Sources */,

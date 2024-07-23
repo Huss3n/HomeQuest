@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-enum HeaderFilterButtons: String, Hashable, CaseIterable {
+protocol Filterable: RawRepresentable, Hashable, CaseIterable where RawValue == String, AllCases: RandomAccessCollection {
+    var displayName: String { get }
+}
+
+enum HeaderFilterButtons: String, Filterable {
     case rent
     case sale
-   
+
     var displayName: String {
         switch self {
         case .sale:
@@ -21,19 +25,19 @@ enum HeaderFilterButtons: String, Hashable, CaseIterable {
     }
 }
 
-struct HeaderFilter: View {
-    @Binding var selectedFilter: HeaderFilterButtons
+struct HeaderFilter<Filter: Filterable>: View {
+    @Binding var selectedFilter: Filter
     @Namespace private var namespace
-    
+
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            ForEach(HeaderFilterButtons.allCases, id: \.rawValue) { filter in
+            ForEach(Filter.allCases, id: \.rawValue) { filter in
                 VStack {
                     Text(filter.displayName)
                         .frame(maxWidth: .infinity)
                         .font(.subheadline)
                         .fontWeight(.medium)
-                    
+
                     if selectedFilter == filter {
                         RoundedRectangle(cornerRadius: 20)
                             .frame(height: 1.5)
@@ -41,7 +45,7 @@ struct HeaderFilter: View {
                     }
                 }
                 .padding(.top, 8)
-                .background(.black.opacity(0.001))
+                .background(Color.black.opacity(0.001))
                 .foregroundStyle(selectedFilter == filter ? Color.blue : Color.primary)
                 .onTapGesture {
                     selectedFilter = filter
@@ -53,5 +57,5 @@ struct HeaderFilter: View {
 }
 
 #Preview {
-    HeaderFilter(selectedFilter: .constant(.rent))
+    HeaderFilter(selectedFilter: .constant(HeaderFilterButtons.rent))
 }
