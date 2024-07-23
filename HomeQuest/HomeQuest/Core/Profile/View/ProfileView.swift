@@ -71,7 +71,7 @@ struct ProfileView: View {
                     }
                     
                     NavigationLink {
-                        Text("My Bookings")
+                        MyBooking()
                     } label: {
                         listItems(imageName: "house", listName: "My Bookings")
                     }
@@ -82,10 +82,22 @@ struct ProfileView: View {
                         listItems(imageName: "heart", listName: "Liked Properties")
                     }
                     
-                    listItems(imageName: "key", listName: "Change password")
-                        .onTapGesture {
-                            changePassword.toggle()
-                        }
+                    
+                    HStack {
+                        Image(systemName: "key")
+                        Text("Change password")
+
+                        Rectangle()
+                            .fill(.blue.opacity(0.001))
+                            .frame(height: 20)
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.gray)
+                            .font(.subheadline)
+                    }
+                    .onTapGesture {
+                        changePassword.toggle()
+                    }
+                       
                     
                     NavigationLink {
                         
@@ -146,7 +158,10 @@ struct ProfileView: View {
             .confirmationDialog("", isPresented: $logoutTapped, actions: {
                 Button("Cancel", role: .cancel, action: {})
                 Button("Logut", role: .destructive, action: {
-                    UserDefaults.standard.setValue(true, forKey: "userNotSignedIn")
+                    dismiss()
+                    DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
+                        UserDefaults.standard.setValue(true, forKey: "userNotSignedIn")
+                    }
                 })
             }, message: {
                 Text("Are you sure you want to logout?")
