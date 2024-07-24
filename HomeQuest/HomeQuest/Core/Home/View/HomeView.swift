@@ -105,12 +105,20 @@ extension HomeView {
                     .stroke(Color.primary, lineWidth: 0.5)
             }
             
-            Image(systemName: "line.3.horizontal.decrease.circle")
-                .foregroundStyle(.white)
-                .font(.title2)
-                .padding(8)
-                .background(.blue)
-                .cornerRadius(15)
+            NavigationLink {
+                SearchFilters()
+                    .navigationBarBackButtonHidden()
+                
+            } label: {
+                Image(systemName: "line.3.horizontal.decrease.circle")
+                    .foregroundStyle(.white)
+                    .font(.title2)
+                    .padding(8)
+                    .background(.blue)
+                    .cornerRadius(15)
+            }
+            .tint(.primary)
+
         }
         .padding(.top, 10)
     }

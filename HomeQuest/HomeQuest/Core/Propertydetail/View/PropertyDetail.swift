@@ -177,7 +177,7 @@ extension PropertyDetail {
                 Image(image)
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(20)
+                    .cornerRadius(10)
                     .onTapGesture {
                         withAnimation {
                             selectedImage = image

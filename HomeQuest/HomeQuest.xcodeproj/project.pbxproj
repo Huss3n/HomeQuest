@@ -41,6 +41,7 @@
 		779A0AB52C4E4A160030111E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779A0AB42C4E4A160030111E /* ChatView.swift */; };
 		77AFA5812C4FC5A90043CA6B /* CancelBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFA5802C4FC5A90043CA6B /* CancelBooking.swift */; };
 		77AFA5852C4FE1940043CA6B /* RealtorRevire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFA5842C4FE1940043CA6B /* RealtorRevire.swift */; };
+		77AFA5892C500AFB0043CA6B /* SearchFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFA5882C500AFB0043CA6B /* SearchFilters.swift */; };
 		77B18C572C4E75B900635316 /* LikedProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18C562C4E75B900635316 /* LikedProperties.swift */; };
 		77B18C592C4E7F1400635316 /* RecentChats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B18C582C4E7F1400635316 /* RecentChats.swift */; };
 		77B18C5B2C4E84A700635316 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 77B18C5A2C4E84A700635316 /* SDWebImageSwiftUI */; };
@@ -100,6 +101,7 @@
 		779A0AB42C4E4A160030111E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		77AFA5802C4FC5A90043CA6B /* CancelBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBooking.swift; sourceTree = "<group>"; };
 		77AFA5842C4FE1940043CA6B /* RealtorRevire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtorRevire.swift; sourceTree = "<group>"; };
+		77AFA5882C500AFB0043CA6B /* SearchFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilters.swift; sourceTree = "<group>"; };
 		77B18C562C4E75B900635316 /* LikedProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedProperties.swift; sourceTree = "<group>"; };
 		77B18C582C4E7F1400635316 /* RecentChats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChats.swift; sourceTree = "<group>"; };
 		77CA54BC2C4AA93400BAF74E /* PropertyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCardView.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		77693E952C450D930087D792 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				77AFA5862C500AE00043CA6B /* SearchFilter */,
 				77AFA5822C4FE17F0043CA6B /* RealtorReview */,
 				77303D012C4FA2D2008F665A /* MyBookings */,
 				779A0AAD2C4D33980030111E /* Profile */,
@@ -488,6 +491,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		77AFA5862C500AE00043CA6B /* SearchFilter */ = {
+			isa = PBXGroup;
+			children = (
+				77AFA5872C500AED0043CA6B /* View */,
+			);
+			path = SearchFilter;
+			sourceTree = "<group>";
+		};
+		77AFA5872C500AED0043CA6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77AFA5882C500AFB0043CA6B /* SearchFilters.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		77CA54C72C4BC20A00BAF74E /* Viewmodel */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +679,7 @@
 				77F92FB02C46E9B400B212DC /* RealEstateView.swift in Sources */,
 				7748541F2C490BBC00655C6B /* MapViewmodel.swift in Sources */,
 				77693EA52C452D2A0087D792 /* Route.swift in Sources */,
+				77AFA5892C500AFB0043CA6B /* SearchFilters.swift in Sources */,
 				77F92FB92C470CB300B212DC /* AddPhoneNumber.swift in Sources */,
 				779A0AB02C4D33B10030111E /* ProfileView.swift in Sources */,
 				77F1A6602C456F9600EE5D17 /* PropertyCapsule.swift in Sources */,
