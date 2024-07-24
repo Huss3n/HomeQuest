@@ -13,6 +13,7 @@ struct ProfileView: View {
     @State private var activityStatus: Bool = true
     @State private var logoutTapped: Bool = false
     let url: URL = URL(string: "https://t.ly/4-8Vt")!
+    @State private var accountTypeUser: AccountTypeUser = .realtor
     
     
     // Password fields
@@ -48,7 +49,7 @@ struct ProfileView: View {
                                 }
                         }
                         .font(.subheadline)
-                        Text("Realtor")
+                        Text(accountTypeUser.name)
                             .font(.subheadline)
                             .foregroundStyle(.gray)
                     }
@@ -106,14 +107,14 @@ struct ProfileView: View {
                     }
                     
                     NavigationLink {
-                        
+                        AccountType(accountType: $accountTypeUser)
                     } label: {
                         HStack {
                             Image(systemName: "lock")
                             Text("Account Type")
                             Spacer()
                             
-                            Text("Realtor")
+                            Text(accountTypeUser.name)
                                 .foregroundStyle(.gray)
                                 .font(.subheadline)
                         }
@@ -134,7 +135,9 @@ struct ProfileView: View {
                     HStack {
                         Image(systemName: "rectangle.portrait.and.arrow.right")
                         Text("Logout")
-                        Spacer()
+                        Rectangle()
+                            .fill(.blue.opacity(0.001))
+                            .frame(height: 20)
                         Image(systemName: "chevron.right")
                             .font(.subheadline)
                             .foregroundStyle(.gray)
@@ -271,6 +274,72 @@ struct ChangePasswordView: View {
             .onAppear {
                 currentPasswordIsFocused = true
             }
+        }
+    }
+}
+
+
+
+struct AccountType: View {
+    @Environment(\.dismiss) var dismiss
+    @Binding var accountType: AccountTypeUser
+    @State private var initialAccountType: AccountTypeUser
+    
+    init(accountType: Binding<AccountTypeUser>) {
+        self._accountType = accountType
+        self._initialAccountType = State(initialValue: accountType.wrappedValue)
+    }
+    
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 12) {
+                ForEach(AccountTypeUser.allCases, id: \.self) { type in
+                    HStack {
+                        Text(type.name)
+                        Rectangle()
+                            .fill(.blue.opacity(0.001))
+                            .frame(height: 40)
+                        Image(systemName: accountType == type ? "circle.fill" : "circle")
+                            .foregroundStyle(.blue)
+                    }
+                    .font(.headline)
+                    .onTapGesture {
+                        accountType = type
+                    }
+                }
+                
+                Spacer()
+            }
+            .toolbar {
+                ToolbarItem {
+                    Text("SAVE")
+                        .foregroundStyle(accountType != initialAccountType ? .blue : .gray)
+                        .font(.headline)
+                        .onTapGesture {
+                            dismiss()
+                        }
+                }
+            }
+            .navigationTitle("Account Type")
+            .navigationBarTitleDisplayMode(.inline)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+            .padding(.top, 18)
+        }
+    }
+}
+
+
+enum AccountTypeUser: CaseIterable {
+    case realtor
+    case user
+    
+    var name: String {
+        switch self {
+        case .realtor:
+            return "Realtor"
+        case .user:
+            return "User"
         }
     }
 }
